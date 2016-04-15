@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Demo</title>
+		<meta charset="utf-8">
+	    <meta name="description" content="Demo project">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+		<style type="text/css">
+
+			h1 {
+		        font-size: 3em;
+		        font-family: 'Helvetica', 'Arial', 'Sans-Serif';
+		    }
+		    
+		    p {
+		        font-size: 1.5em;
+		        line-height: 1.4em;
+		        font-family: 'Helvetica', 'Arial', 'Sans-Serif';
+		        color: #333;
+		        display: inline;
+		    }
+
+			body {
+	        	margin: 10px auto;
+	        	width: 90%;
+	    	}
+
+			#right {
+	        	margin-left: 25%;
+	    	}
+
+	    	#left {
+	        	float: left;
+	        	width: 20%;
+	    	}
+		</style>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+ 
+	    <script type="text/javascript">
+
+	    	$(document).ready(function() {
+	            $('#btnAdd').click(function() {
+	                var num     = $('.clonedInput').length;
+	                var newNum  = new Number(num + 1);
+	 
+	                var newElem = $('#input' + num).clone().attr('id', 'input' + newNum);
+	     
+	                newElem.children(':first').attr('id', 'name' + newNum).attr('name', 'name' + newNum).attr('placeholder', 'port ' + newNum);
+	                $('#input' + num).after(newElem);
+	                $('#btnDel').attr('disabled',false);
+	 
+	                if (newNum == 25)
+	                    $('#btnAdd').attr('disabled','disabled');
+	            });
+	 
+	            $('#btnDel').click(function() {
+	                var num = $('.clonedInput').length;
+	 
+	                $('#input' + num).remove();
+	                $('#btnAdd').attr('disabled',false);
+	 
+	                if (num-1 == 1)
+	                    $('#btnDel').attr('disabled','disabled');
+	            });
+	 
+	            $('#btnDel').attr('disabled','disabled');
+	        });
+
+	        function canaldigital() {
+		        $('#IDinput').val('12')
+		        $('#IPinput').val('')
+		        $('#name1').val('1')
+		        $('#name2').val('2')
+		        $('#name3').val('3')
+		        $('#name4').val('4')
+	    	}
+			
+			function showdiv() {
+		        var inputID = document.getElementById("IDinput");
+		        if (inputID.value == "") {
+		            alert("Husk at indtaste enhedens navn!");
+
+		        } else {
+		        	var ID = document.getElementById("IDinput").value;
+		        	$(".ID1").text(ID);
+		        }
+
+		        var inputIP = document.getElementById("IPinput");
+		        if (inputIP.value == "") {
+		            alert("Husk at indtaste enhedens IP!");
+
+		        } else {
+		        	var IP = document.getElementById("IPinput").value;
+		        	$(".IP1").text(IP);
+		        }
+		        var input = document.getElementById("name1");
+		        if ($('#name1').length == 0 || input.value == "" || inputIP.value == "" || inputID.value == "") {
+		            document.getElementById("item1").style.display = "none";
+
+		        } else {
+		            document.getElementById("item1").style.display = "block";
+		            document.getElementById("husk").style.display = "block";
+		            var PT1 = document.getElementById("name1").value;
+			        $("#PORT1").text(PT1);
+
+		        }
+		        var input = document.getElementById("name2");
+		        if ($('#name2').length == 0 || input.value == "" || inputIP.value == "" || inputID.value == "") {
+		            document.getElementById("item2").style.display = "none";
+
+		        } else {
+		            document.getElementById("item2").style.display = "block";
+		            document.getElementById("husk").style.display = "block";
+		            var PT2 = document.getElementById("name2").value;
+			        $("#PORT2").text(PT2);
+		        }
+
+		        var input = document.getElementById("name3");
+		        if ($('#name3').length == 0 || input.value == "" || inputIP.value == "" || inputID.value == "") {
+		            document.getElementById("item3").style.display = "none";
+
+		        } else {
+		            document.getElementById("item3").style.display = "block";
+		            document.getElementById("husk").style.display = "block";
+		            var PT3 = document.getElementById("name3").value;
+			        $("#PORT3").text(PT3);
+		        }
+
+		        var input = document.getElementById("name4");
+		        if ($('#name4').length == 0 || input.value == "" || inputIP.value == "" || inputID.value == "") {
+		            document.getElementById("item4").style.display = "none";
+
+		        } else {
+		            document.getElementById("item4").style.display = "block";
+		            document.getElementById("husk").style.display = "block";
+		            var PT4 = document.getElementById("name4").value;
+			        $("#PORT4").text(PT4);
+		        }
+
+		        var input = document.getElementById("name5");
+		        if ($('#name5').length == 0 || input.value == "" || inputIP.value == "" || inputID.value == "") {
+		            document.getElementById("item5").style.display = "none";
+
+		        } else {
+		            document.getElementById("item5").style.display = "block";
+		            document.getElementById("husk").style.display = "block";
+		            var PT5 = document.getElementById("name5").value;
+			        $("#PORT5").text(PT5);
+		        }
+
+		        var input = document.getElementById("name6");
+		        if ($('#name6').length == 0 || input.value == "" || inputIP.value == "" || inputID.value == "") {
+		            document.getElementById("item6").style.display = "none";
+
+		        } else {
+		            document.getElementById("item6").style.display = "block";
+		            document.getElementById("husk").style.display = "block";
+		            var PT6 = document.getElementById("name6").value;
+			        $("#PORT6").text(PT6);
+		        }
+
+		        var input = document.getElementById("name7");
+		        if ($('#name7').length == 0 || input.value == "" || inputIP.value == "" || inputID.value == "") {
+		            document.getElementById("item7").style.display = "none";
+
+		        } else {
+		            document.getElementById("item7").style.display = "block";
+		            document.getElementById("husk").style.display = "block";
+		            var PT7 = document.getElementById("name7").value;
+			        $("#PORT7").text(PT7);
+			        var PT8 = document.getElementById("name8").value;
+		        }
+
+		        var input = document.getElementById("name8");
+		        if ($('#name8').length == 0 || input.value == "" || inputIP.value == "" || inputID.value == "") {
+		            document.getElementById("item8").style.display = "none";
+
+		        } else {
+		            document.getElementById("item8").style.display = "block";
+		            document.getElementById("husk").style.display = "block";
+			        $("#PORT9").text(PT8);
+		        }
+
+		        var input = document.getElementById("name9");
+		        if ($('#name9').length == 0 || input.value == "" || inputIP.value == "" || inputID.value == "") {
+		            document.getElementById("item9").style.display = "none";
+
+		        } else {
+		            document.getElementById("item9").style.display = "block";
+		            document.getElementById("husk").style.display = "block";
+			        var PT9 = document.getElementById("name9").value;
+			        $("#PORT9").text(PT9);
+
+		        }
+		        var input = document.getElementById("name10");
+		        if ($('#name10').length == 0 || input.value == "" || inputIP.value == "" || inputID.value == "") {
+		            document.getElementById("item10").style.display = "none";
+
+		        } else {
+		            document.getElementById("item10").style.display = "block";
+		            document.getElementById("husk").style.display = "block";
+			        var PT10 = document.getElementById("name10").value;
+			        $("#PORT10").text(PT10);
+		        }
+
+		        var input = document.getElementById("name11");
+		        if ($('#name11').length == 0 || input.value == "" || inputIP.value == "" || inputID.value == "") {
+		            document.getElementById("item11").style.display = "none";
+
+		        } else {
+		            document.getElementById("item11").style.display = "block";
+		            document.getElementById("husk").style.display = "block";
+			        var PT11 = document.getElementById("name11").value;
+			        $("#PORT11").text(PT11);
+		        }
+
+		        var input = document.getElementById("name12");
+		        if ($('#name12').length == 0 || input.value == "" || inputIP.value == "" || inputID.value == "") {
+		            document.getElementById("item12").style.display = "none";
+
+		        } else {
+		            document.getElementById("item12").style.display = "block";
+		            document.getElementById("husk").style.display = "block";
+			        var PT12 = document.getElementById("name12").value;
+			        $("#PORT12").text(PT12);
+		        }
+
+		        var input = document.getElementById("name13");
+		        if ($('#name13').length == 0 || input.value == "" || inputIP.value == "" || inputID.value == "") {
+		            document.getElementById("item13").style.display = "none";
+
+		        } else {
+		            document.getElementById("item13").style.display = "block";
+		            document.getElementById("husk").style.display = "block";
+			        var PT13 = document.getElementById("name13").value;
+			        $("#PORT13").text(PT13);
+		        }
+
+		        var input = document.getElementById("name14");
+		        if ($('#name14').length == 0 || input.value == "" || inputIP.value == "" || inputID.value == "") {
+		            document.getElementById("item14").style.display = "none";
+
+		        } else {
+		            document.getElementById("item14").style.display = "block";
+		            document.getElementById("husk").style.display = "block";
+			        var PT14 = document.getElementById("name14").value;
+			        $("#PORT14").text(PT14);
+		        }
+				
+				var input = document.getElementById("name15");
+		        if ($('#name15').length == 0 || input.value == "" || inputIP.value == "" || inputID.value == "") {
+		            document.getElementById("item15").style.display = "none";
+
+		        } else {
+		            document.getElementById("item15").style.display = "block";
+		            document.getElementById("husk").style.display = "block";
+			        var PT15 = document.getElementById("name15").value;
+			        $("#PORT15").text(PT15);
+		        }
+
+		        var input = document.getElementById("name16");
+		        if ($('#name16').length == 0 || input.value == "" || inputIP.value == "" || inputID.value == "") {
+		            document.getElementById("item16").style.display = "none";
+
+		        } else {
+		            document.getElementById("item16").style.display = "block";
+		            document.getElementById("husk").style.display = "block";
+			        var PT16 = document.getElementById("name16").value;
+			        $("#PORT16").text(PT16);
+		        }
+				
+				var input = document.getElementById("name17");
+		        if ($('#name17').length == 0 || input.value == "" || inputIP.value == "" || inputID.value == "") {
+		            document.getElementById("item17").style.display = "none";
+
+		        } else {
+		            document.getElementById("item17").style.display = "block";
+		            document.getElementById("husk").style.display = "block";
+			        var PT17 = document.getElementById("name17").value;
+			        $("#PORT17").text(PT17);
+		        }
+				
+				var input = document.getElementById("name18");
+		        if ($('#name18').length == 0 || input.value == "" || inputIP.value == "" || inputID.value == "") {
+		            document.getElementById("item18").style.display = "none";
+
+		        } else {
+		            document.getElementById("item18").style.display = "block";
+		            document.getElementById("husk").style.display = "block";
+			        var PT18 = document.getElementById("name18").value;
+			        $("#PORT18").text(PT18);
+		        }
+				
+				var input = document.getElementById("name19");
+		        if ($('#name19').length == 0 || input.value == "" || inputIP.value == "" || inputID.value == "") {
+		            document.getElementById("item19").style.display = "none";
+
+		        } else {
+		            document.getElementById("item19").style.display = "block";
+		            document.getElementById("husk").style.display = "block";
+			        var PT19 = document.getElementById("name19").value;
+			        $("#PORT19").text(PT19);
+		        }
+				
+				var input = document.getElementById("name20");
+		        if ($('#name20').length == 0 || input.value == "" || inputIP.value == "" || inputID.value == "") {
+		            document.getElementById("item20").style.display = "none";
+
+		        } else {
+		            document.getElementById("item20").style.display = "block";
+		            document.getElementById("husk").style.display = "block";
+			        var PT20 = document.getElementById("name20").value;
+			        $("#PORT20").text(PT20);
+		        }
+				
+				var input = document.getElementById("name21");
+		        if ($('#name21').length == 0 || input.value == "" || inputIP.value == "" || inputID.value == "") {
+		            document.getElementById("item21").style.display = "none";
+
+		        } else {
+		            document.getElementById("item21").style.display = "block";
+		            document.getElementById("husk").style.display = "block";
+			        var PT21 = document.getElementById("name21").value;
+			        $("#PORT21").text(PT21);
+		        }
+				
+				var input = document.getElementById("name22");
+		        if ($('#name22').length == 0 || input.value == "" || inputIP.value == "" || inputID.value == "") {
+		            document.getElementById("item22").style.display = "none";
+
+		        } else {
+		            document.getElementById("item22").style.display = "block";
+		            document.getElementById("husk").style.display = "block";
+			        var PT22 = document.getElementById("name22").value;
+			        $("#PORT22").text(PT22);
+		        }
+				
+				var input = document.getElementById("name23");
+		        if ($('#name23').length == 0 || input.value == "" || inputIP.value == "" || inputID.value == "") {
+		            document.getElementById("item23").style.display = "none";
+
+		        } else {
+		            document.getElementById("item23").style.display = "block";
+		            document.getElementById("husk").style.display = "block";
+			        var PT23 = document.getElementById("name23").value;
+			        $("#PORT23").text(PT23);
+		        }
+				
+				var input = document.getElementById("name24");
+		        if ($('#name24').length == 0 || input.value == "" || inputIP.value == "" || inputID.value == "") {
+		            document.getElementById("item24").style.display = "none";
+
+		        } else {
+		            document.getElementById("item24").style.display = "block";
+		            document.getElementById("husk").style.display = "block";
+		            var PT24 = document.getElementById("name24").value;
+			        $("#PORT24").text(PT24);
+		        }
+				
+				var input = document.getElementById("name25");
+		        if ($('#name25').length == 0 || input.value == "" || inputIP.value == "" || inputID.value == "") {
+		            document.getElementById("item25").style.display = "none";
+
+		        } else {
+		            document.getElementById("item25").style.display = "block";
+		            document.getElementById("husk").style.display = "block";
+			        var PT25 = document.getElementById("name25").value;
+			        $("#PORT25").text(PT25);
+	        }
+		}
+	    </script>
+	</head>
+	<body>
+
+	<div id=top> <h1><b>Portforwaarding generator</b></h1> </div>
+
+	<div id=left>
+
+		<div>
+	        <input type="button" id="btnAdd" value="Tilføj port" />
+	        <input type="button" id="btnDel" value="Fjern port" />
+	    </div>
+
+	<form id="myForm">
+		<div id="formstart">
+			<input type="text" id="IDinput" autofocus placeholder="Navn på enhed" />
+            <br>
+        	<input type='text' id='IPinput' placeholder='IP på enhed' />
+            <br>	
+		</div>
+	    <div id="input1" class="clonedInput">
+	        <input type="text" name="name1" id="name1" placeholder="Port 1" />
+	    </div>
+	 
+	    
+
+	    <input type='button' class="button2" onclick='canaldigital()' value='Canal Digital GO'/>
+	    <input id="kor" type='button' class="button" onclick='showdiv()' value='Kør' />
+	</form>
+	</div>
+
+	<div id=right>    
+	    <blockquote>
+
+            <div id="select">
+
+                <div id="item1" style="display:none">
+                    <p>:service host add name=<span class="ID1">ID</span>1
+                        <br> :service host rule add name=<span class="ID1">ID</span>1 protocol=any portrange=<span id='PORT1'>ID</span>
+                        <br> :service host assign name=<span class="ID1">ID</span>1 host=<span class='IP1'>ID</span> log=disabled </p>
+                </div>
+
+                <div id="item2" style="display:none">
+                    <p>:service host add name=<span class="ID1">ID</span>2
+                        <br> :service host rule add name=<span class="ID1">ID</span>2 protocol=any portrange=<span id='PORT2'>ID</span>
+                        <br> :service host assign name=<span class="ID1">ID</span>2 host=<span class='IP1'>ID</span> log=disabled </p>
+                </div>
+
+                <div id="item3" style="display:none">
+                    <p>:service host add name=<span class="ID1">ID</span>3
+                        <br> :service host rule add name=<span class="ID1">ID</span>3 protocol=any portrange=<span id='PORT3'>ID</span>
+                        <br> :service host assign name=<span class="ID1">ID</span>3 host=<span class='IP1'>ID</span> log=disabled </p>
+                </div>
+
+                <div id="item4" style="display:none">
+                    <p>:service host add name=<span class="ID1">ID</span>4
+                        <br> :service host rule add name=<span class="ID1">ID</span>4 protocol=any portrange=<span id='PORT4'>ID</span>
+                        <br> :service host assign name=<span class="ID1">ID</span>4 host=<span class='IP1'>ID</span> log=disabled </p>
+                </div>
+
+                <div id="item5" style="display:none">
+                    <p>:service host add name=<span class="ID1">ID</span>5
+                        <br> :service host rule add name=<span class="ID1">ID</span>5 protocol=any portrange=<span id='PORT5'>ID</span>
+                        <br> :service host assign name=<span class="ID1">ID</span>5 host=<span class='IP1'>ID</span> log=disabled </p>
+                </div>
+
+                <div id="item6" style="display:none">
+                    <p>:service host add name=<span class="ID1">ID</span>6
+                        <br> :service host rule add name=<span class="ID1">ID</span>6 protocol=any portrange=<span id='PORT6'>ID</span>
+                        <br> :service host assign name=<span class="ID1">ID</span>6 host=<span class='IP1'>ID</span> log=disabled </p>
+                </div>
+
+                <div id="item7" style="display:none">
+                    <p>:service host add name=<span class="ID1">ID</span>7
+                        <br> :service host rule add name=<span class="ID1">ID</span>7 protocol=any portrange=<span id='PORT7'>ID</span>
+                        <br> :service host assign name=<span class="ID1">ID</span>7 host=<span class='IP1'>ID</span> log=disabled </p>
+                </div>
+
+                <div id="item8" style="display:none">
+                    <p>:service host add name=<span class="ID1">ID</span>8
+                        <br> :service host rule add name=<span class="ID1">ID</span>8 protocol=any portrange=<span id='PORT8'>ID</span>
+                        <br> :service host assign name=<span class="ID1">ID</span>8 host=<span class='IP1'>ID</span> log=disabled </p>
+                </div>
+
+                <div id="item9" style="display:none">
+                    <p>:service host add name=<span class="ID1">ID</span>9
+                        <br> :service host rule add name=<span class="ID1">ID</span>9 protocol=any portrange=<span id='PORT9'>ID</span>
+                        <br> :service host assign name=<span class="ID1">ID</span>9 host=<span class='IP1'>ID</span> log=disabled </p>
+                </div>
+
+                <div id="item10" style="display:none">
+                    <p>:service host add name=<span class="ID1">ID</span>10
+                        <br> :service host rule add name=<span class="ID1">ID</span>10 protocol=any portrange=<span id='PORT10'>ID</span>
+                        <br> :service host assign name=<span class="ID1">ID</span>10 host=<span class='IP1'>ID</span> log=disabled </p>
+                </div>
+
+                <div id="item11" style="display:none">
+                    <p>:service host add name=<span class="ID1">ID</span>11
+                        <br> :service host rule add name=<span class="ID1">ID</span>11 protocol=any portrange=<span id='PORT11'>ID</span>
+                        <br> :service host assign name=<span class="ID1">ID</span>11 host=<span class='IP1'>ID</span> log=disabled </p>
+                </div>
+
+                <div id="item12" style="display:none">
+                    <p>:service host add name=<span class="ID1">ID</span>12
+                        <br> :service host rule add name=<span class="ID1">ID</span>12 protocol=any portrange=<span id='PORT12'>ID</span>
+                        <br> :service host assign name=<span class="ID1">ID</span>12 host=<span class='IP1'>ID</span> log=disabled </p>
+                </div>
+
+                <div id="item13" style="display:none">
+                    <p>:service host add name=<span class="ID1">ID</span>13
+                        <br> :service host rule add name=<span class="ID1">ID</span>13 protocol=any portrange=<span id='PORT13'>ID</span>
+                        <br> :service host assign name=<span class="ID1">ID</span>13 host=<span class='IP1'>ID</span> log=disabled </p>
+                </div>
+
+                <div id="item14" style="display:none">
+                    <p>:service host add name=<span class="ID1">ID</span>14
+                        <br> :service host rule add name=<span class="ID1">ID</span>14 protocol=any portrange=<span id='PORT14'>ID</span>
+                        <br> :service host assign name=<span class="ID1">ID</span>14 host=<span class='IP1'>ID</span> log=disabled </p>
+                </div>
+
+                <div id="item15" style="display:none">
+                    <p>:service host add name=<span class="ID1">ID</span>15
+                        <br> :service host rule add name=<span class="ID1">ID</span>15 protocol=any portrange=<span id='PORT15'>ID</span>
+                        <br> :service host assign name=<span class="ID1">ID</span>15 host=<span class='IP1'>ID</span> log=disabled </p>
+                </div>
+
+                <div id="item16" style="display:none">
+                    <p>:service host add name=<span class="ID1">ID</span>16
+                        <br> :service host rule add name=<span class="ID1">ID</span>15 protocol=any portrange=<span id='PORT16'>ID</span>
+                        <br> :service host assign name=<span class="ID1">ID</span>15 host=<span class='IP1'>ID</span> log=disabled </p>
+                </div>
+
+                <div id="item17" style="display:none">
+                    <p>:service host add name=<span class="ID1">ID</span>17
+                        <br> :service host rule add name=<span class="ID1">ID</span>15 protocol=any portrange=<span id='PORT17'>ID</span>
+                        <br> :service host assign name=<span class="ID1">ID</span>15 host=<span class='IP1'>ID</span> log=disabled </p>
+                </div>
+
+                <div id="item18" style="display:none">
+                    <p>:service host add name=<span class="ID1">ID</span>18
+                        <br> :service host rule add name=<span class="ID1">ID</span>15 protocol=any portrange=<span id='PORT18'>ID</span>
+                        <br> :service host assign name=<span class="ID1">ID</span>15 host=<span class='IP1'>ID</span> log=disabled </p>
+                </div>
+
+                <div id="item19" style="display:none">
+                    <p>:service host add name=<span class="ID1">ID</span>19
+                        <br> :service host rule add name=<span class="ID1">ID</span>15 protocol=any portrange=<span id='PORT19'>ID</span>
+                        <br> :service host assign name=<span class="ID1">ID</span>15 host=<span class='IP1'>ID</span> log=disabled </p>
+                </div>
+
+                <div id="item20" style="display:none">
+                    <p>:service host add name=<span class="ID1">ID</span>20
+                        <br> :service host rule add name=<span class="ID1">ID</span>15 protocol=any portrange=<span id='PORT20'>ID</span>
+                        <br> :service host assign name=<span class="ID1">ID</span>15 host=<span class='IP1'>ID</span> log=disabled </p>
+                </div>
+
+                <div id="item21" style="display:none">
+                    <p>:service host add name=<span class="ID1">ID</span>21
+                        <br> :service host rule add name=<span class="ID1">ID</span>15 protocol=any portrange=<span id='PORT21'>ID</span>
+                        <br> :service host assign name=<span class="ID1">ID</span>15 host=<span class='IP1'>ID</span> log=disabled </p>
+                </div>
+
+                <div id="item22" style="display:none">
+                    <p>:service host add name=<span class="ID1">ID</span>22
+                        <br> :service host rule add name=<span class="ID1">ID</span>15 protocol=any portrange=<span id='PORT22'>ID</span>
+                        <br> :service host assign name=<span class="ID1">ID</span>15 host=<span class='IP1'>ID</span> log=disabled </p>
+                </div>
+
+                <div id="item23" style="display:none">
+                    <p>:service host add name=<span class="ID1">ID</span>23
+                        <br> :service host rule add name=<span class="ID1">ID</span>15 protocol=any portrange=<span id='PORT23'>ID</span>
+                        <br> :service host assign name=<span class="ID1">ID</span>15 host=<span class='IP1'>ID</span> log=disabled </p>
+                </div>
+
+                <div id="item24" style="display:none">
+                    <p>:service host add name=<span class="ID1">ID</span>24
+                        <br> :service host rule add name=<span class="ID1">ID</span>15 protocol=any portrange=<span id='PORT24'>ID</span>
+                        <br> :service host assign name=<span class="ID1">ID</span>15 host=<span class='IP1'>ID</span> log=disabled </p>
+                </div>
+
+                <div id="item25" style="display:none">
+                    <p>:service host add name=<span class="ID1">ID</span>25
+                        <br> :service host rule add name=<span class="ID1">ID</span>15 protocol=any portrange=<span id='PORT25'>ID</span>
+                        <br> :service host assign name=<span class="ID1">ID</span>15 host=<span class='IP1'>ID</span> log=disabled </p>
+                </div>
+
+            </div>
+		</blockquote>
+
+			<div id="husk" style="display:none">
+
+			</div>
+		</div>
+
+	
+		
+
+	</body>
+	
+</html>
