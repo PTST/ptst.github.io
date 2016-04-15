@@ -69,7 +69,6 @@
 
 	        function canaldigital() {
 		        $('#IDinput').val('CD')
-		        $('#IPinput').val('')
 		        $('#name1').val('80')
 		        
 		        if ($('#name2').length == 0) {
@@ -92,9 +91,91 @@
 		        } else {
 		        	$('#name4').val('8889')
 		        }
+		        $('#name5').val('')
+	        	$('#name6').val('')
+		        $('#name7').val('')
+		        $('#name8').val('')
+		        $('#name9').val('')
+		        $('#name10').val('')
+		        $('#name11').val('')
+		        $('#name12').val('')
+		        $('#name13').val('')
+		        $('#name14').val('')
+		        $('#name15').val('')
+		        $('#name16').val('')
+		        $('#name17').val('')
+		        $('#name18').val('')
+		        $('#name19').val('')
+		        $('#name20').val('')
+		        $('#name21').val('')
+		        $('#name22').val('')
+		        $('#name23').val('')
+		        $('#name24').val('')
+		        $('#name25').val('')
+			    }
+
+	        function appletv() {
+		        $('#IDinput').val('ATV')
+		        $('#IPinput').val('')
+		        $('#name1').val('80')
+		        
+		        if ($('#name2').length == 0) {
+		        	$('#btnAdd').trigger('click');
+		        	$('#name2').val('443')
+		        } else {
+		        	$('#name2').val('443')
+		        }
+
+		        if ($('#name3').length == 0) {
+		        	$('#btnAdd').trigger('click');
+		        	$('#name3').val('53')
+		        } else {
+		        	$('#name3').val('53')
+		        }
+
+		        if ($('#name4').length == 0) {
+		        	$('#btnAdd').trigger('click');
+		        	$('#name4').val('5353')
+		        } else {
+		        	$('#name4').val('5353')
+		        }
+
+		        if ($('#name5').length == 0) {
+		        	$('#btnAdd').trigger('click');
+		        	$('#name5').val('123')
+		        } else {
+		        	$('#name5').val('123')
+		        }
+
+		        if ($('#name6').length == 0) {
+		        	$('#btnAdd').trigger('click');
+		        	$('#name6').val('3689')
+		        } else {
+		        	$('#name6').val('3689')
+		        }
+		        $('#name7').val('')
+		        $('#name8').val('')
+		        $('#name9').val('')
+		        $('#name10').val('')
+		        $('#name11').val('')
+		        $('#name12').val('')
+		        $('#name13').val('')
+		        $('#name14').val('')
+		        $('#name15').val('')
+		        $('#name16').val('')
+		        $('#name17').val('')
+		        $('#name18').val('')
+		        $('#name19').val('')
+		        $('#name20').val('')
+		        $('#name21').val('')
+		        $('#name22').val('')
+		        $('#name23').val('')
+		        $('#name24').val('')
+		        $('#name25').val('')
+			}
 
 		        
-	    	}
+	    	
 			
 			function showdiv() {
 		        var inputID = document.getElementById("IDinput");
@@ -412,11 +493,9 @@
 	    <div id="input1" class="clonedInput">
 	        <input type="text" name="name1" id="name1" placeholder="Port 1" />
 	    </div>
-	 
-	    
-
-	    <input type='button' class="button2" onclick='canaldigital()' value='Canal Digital GO'/>
 	    <input id="kor" type='button' class="button" onclick='showdiv()' value='Kør' />
+	    <input type='button' class="button2" onclick='canaldigital()' value='Canal Digital GO'/>
+	    <input type='button' class="button2" onclick='appletv()' value='Apple TV'/>
 	</form>
 	</div>
 
