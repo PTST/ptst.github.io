@@ -8,32 +8,127 @@
 		<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
 		<style type="text/css">
 
+			.animate
+			{
+				transition: all 0.1s;
+				-webkit-transition: all 0.1s;
+			}
+
+			.card2 {
+				background: #fff;
+				border-radius: 2px;
+				float: left;
+				height: 90%;
+				position: relative;
+				width: 20%;
+				margin-left: 10px
+				
+			}
+
+			.card {
+				background: #fff;
+				border-radius: 2px;
+				margin-top: 0px;
+				margin-left: 25%;
+				height: 90%;
+				position: relative;
+				width: 60%;
+			}
+
+			.card-5 {
+  				box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+			}
+
+			.card-6 {
+  				box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+			}
+
+			.button3 {
+				position: relative;
+				padding: 2px 5px;
+			  	margin: 0px 10px 10px 0px;
+			  	float: left;
+				border-radius: 1px;
+				font-family: 'Helvetica';
+				font-size: 1em;
+				color: #FFF;
+				text-decoration: none;	
+				background-color: #E74C3C;
+				border-bottom: 1px solid #BD3E31;
+			}
+
+			.button3:active {
+				transform: translate(0px,5px);
+			  -webkit-transform: translate(0px,5px);
+				border-bottom: 1px solid;
+			}
+
 			h1 {
 		        font-size: 3em;
 		        font-family: 'Helvetica', 'Arial', 'Sans-Serif';
+		        color: #C3C3C3;
+		        margin: 0px 0px 0px 5px;
 		    }
 		    
 		    p {
 		        font-size: 1.5em;
 		        line-height: 1.4em;
 		        font-family: 'Helvetica', 'Arial', 'Sans-Serif';
-		        color: #333;
+		        color: #3A4A4D;
 		        display: inline;
+
 		    }
 
 			body {
-	        	margin: 10px auto;
-	        	width: 90%;
-	    	}
-
-			#right {
-	        	margin-left: 25%;
+				margin-top: 0px;
+				margin-right: 0px;
+				margin-bottom: 10px;
+				margin-left: 0px;
+				background-color: #FFFFFF;
 	    	}
 
 	    	#left {
-	        	float: left;
-	        	width: 20%;
+	    		padding: 10px 10px 10px 10px;
 	    	}
+			
+			#top {
+				margin-top: 0px;
+				margin-left: 0px;
+				margin-bottom: 20px;
+				background-color: #212121;
+				position: static;
+				height: 50px;
+				width: 100%;
+				box-shadow: 0px 5px 5px 0px rgba(50, 50, 50, 0.75);
+			}
+
+	    	.button2 {
+	        background-color: #FF4430;
+	        border-width: 2px;
+	        border-style: solid;
+	        border-color: #F9FBFB;
+	        color: #F9FBFB;
+	        padding: 5px 5px;
+	        text-align: center;
+	        text-decoration: none;
+	        display: inline-block;
+	        font-size: 1em;
+	    	}
+
+	    	.button2:active {
+	    		background-color: #B12C1A;
+	    	}
+
+	    	input[type=text] {
+		        font-size: 1em;
+		        padding: 0px 0px 0px 0px;
+		        display: block;
+				color: #1619A6;
+		        width: 100%;
+		        border: none;
+		        border-bottom: 1px solid #757575;
+	    	}
+
 		</style>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
  
@@ -66,40 +161,77 @@
 	 
 	            $('#btnDel').attr('disabled','disabled');
 	        });
-
-	        function canaldigital() {
-		        $('#IDinput').val('CD')
-		        $('#name1').val('80')
-		        
-		        if ($('#name2').length == 0) {
-		        	$('#btnAdd').trigger('click');
-		        	$('#name2').val('8080')
-		        } else {
-		        	$('#name2').val('8080')
-		        }
-
-		        if ($('#name3').length == 0) {
-		        	$('#btnAdd').trigger('click');
-		        	$('#name3').val('8888')
-		        } else {
-		        	$('#name3').val('8888')
-		        }
-
-		        if ($('#name4').length == 0) {
-		        	$('#btnAdd').trigger('click');
-		        	$('#name4').val('8889')
-		        } else {
-		        	$('#name4').val('8889')
-		        }
-		        $('#name5').val('')
-	        	$('#name6').val('')
-		        $('#name7').val('')
-		        $('#name8').val('')
-		        $('#name9').val('')
-		        $('#name10').val('')
-		        $('#name11').val('')
-		        $('#name12').val('')
-		        $('#name13').val('')
+			
+			function choose() {
+				var input = document.getElementById("dropdown");
+				if (input.value == "appletv") {
+					appletv();
+				}
+				if (input.value == "sonos") {
+					sonos();
+				}
+				if (input.value == "xbox1") {
+					xbox1();
+				}
+				if (input.value == "xbox360") {
+					xbox360();
+				}
+				if (input.value == "PS") {
+					PS();
+				}
+				if (input.value == "dankort") {
+					dankort();
+				}
+				if (input.value == "chromecast") {
+					chromecast();
+				}
+				if (input.value == "canaldigital") {
+					canaldigital();
+				}
+								
+			}
+			
+			
+			function sonos() {
+				if ($('#name2').length == 0) {
+		        	$('#btnAdd').trigger('click');}
+				if ($('#name3').length == 0) {
+		        	$('#btnAdd').trigger('click');}
+				if ($('#name4').length == 0) {
+		        	$('#btnAdd').trigger('click');}
+				if ($('#name5').length == 0) {
+		        	$('#btnAdd').trigger('click');}
+				if ($('#name6').length == 0) {
+		        	$('#btnAdd').trigger('click');}
+				if ($('#name7').length == 0) {
+		        	$('#btnAdd').trigger('click');}
+				if ($('#name8').length == 0) {
+		        	$('#btnAdd').trigger('click');}
+				if ($('#name9').length == 0) {
+		        	$('#btnAdd').trigger('click');}
+				if ($('#name10').length == 0) {
+		        	$('#btnAdd').trigger('click');}
+				if ($('#name11').length == 0) {
+		        	$('#btnAdd').trigger('click');}
+				if ($('#name12').length == 0) {
+		        	$('#btnAdd').trigger('click');}
+				if ($('#name13').length == 0) {
+		        	$('#btnAdd').trigger('click');}
+				
+				$('#IDinput').val('Sonos')
+				$('#name1').val('80')
+				$('#name2').val('445')
+				$('#name3').val('3400')
+				$('#name4').val('443')
+				$('#name5').val('4070')
+	        	$('#name6').val('136-139')
+		        $('#name7').val('1900')
+		        $('#name8').val('1900')
+		        $('#name9').val('1901')
+		        $('#name10').val('2869')
+		        $('#name11').val('6969')
+		        $('#name12').val('10243')
+		        $('#name13').val('10280-10284')
 		        $('#name14').val('')
 		        $('#name15').val('')
 		        $('#name16').val('')
@@ -112,47 +244,27 @@
 		        $('#name23').val('')
 		        $('#name24').val('')
 		        $('#name25').val('')
-			    }
+			}
 
 	        function appletv() {
-		        $('#IDinput').val('ATV')
-		        $('#IPinput').val('')
-		        $('#name1').val('80')
-		        
-		        if ($('#name2').length == 0) {
-		        	$('#btnAdd').trigger('click');
-		        	$('#name2').val('443')
-		        } else {
-		        	$('#name2').val('443')
-		        }
-
-		        if ($('#name3').length == 0) {
-		        	$('#btnAdd').trigger('click');
-		        	$('#name3').val('53')
-		        } else {
-		        	$('#name3').val('53')
-		        }
-
-		        if ($('#name4').length == 0) {
-		        	$('#btnAdd').trigger('click');
-		        	$('#name4').val('5353')
-		        } else {
-		        	$('#name4').val('5353')
-		        }
-
-		        if ($('#name5').length == 0) {
-		        	$('#btnAdd').trigger('click');
-		        	$('#name5').val('123')
-		        } else {
-		        	$('#name5').val('123')
-		        }
-
-		        if ($('#name6').length == 0) {
-		        	$('#btnAdd').trigger('click');
-		        	$('#name6').val('3689')
-		        } else {
-		        	$('#name6').val('3689')
-		        }
+				if ($('#name2').length == 0) {
+		        	$('#btnAdd').trigger('click');}
+				if ($('#name3').length == 0) {
+		        	$('#btnAdd').trigger('click');}
+				if ($('#name4').length == 0) {
+		        	$('#btnAdd').trigger('click');}
+				if ($('#name5').length == 0) {
+		        	$('#btnAdd').trigger('click');}
+				if ($('#name6').length == 0) {
+		        	$('#btnAdd').trigger('click');}
+								
+				$('#IDinput').val('atv')
+				$('#name1').val('80')
+				$('#name2').val('443')
+				$('#name3').val('53')
+				$('#name4').val('5353')
+				$('#name5').val('123')
+	        	$('#name6').val('3689')
 		        $('#name7').val('')
 		        $('#name8').val('')
 		        $('#name9').val('')
@@ -173,14 +285,256 @@
 		        $('#name24').val('')
 		        $('#name25').val('')
 			}
-
-		        
+			
+			function xbox1() {
+				if ($('#name2').length == 0) {
+		        	$('#btnAdd').trigger('click');}
+				if ($('#name3').length == 0) {
+		        	$('#btnAdd').trigger('click');}
+				if ($('#name4').length == 0) {
+		        	$('#btnAdd').trigger('click');}
+				if ($('#name5').length == 0) {
+		        	$('#btnAdd').trigger('click');}
+				if ($('#name6').length == 0) {
+		        	$('#btnAdd').trigger('click');}
+				if ($('#name7').length == 0) {
+		        	$('#btnAdd').trigger('click');}
+								
+				$('#IDinput').val('Xone')
+				$('#name1').val('88')
+				$('#name2').val('3074')
+				$('#name3').val('53')
+				$('#name4').val('80')
+				$('#name5').val('500')
+	        	$('#name6').val('3544')
+		        $('#name7').val('4500')
+		        $('#name8').val('')
+		        $('#name9').val('')
+		        $('#name10').val('')
+		        $('#name11').val('')
+		        $('#name12').val('')
+		        $('#name13').val('')
+		        $('#name14').val('')
+		        $('#name15').val('')
+		        $('#name16').val('')
+		        $('#name17').val('')
+		        $('#name18').val('')
+		        $('#name19').val('')
+		        $('#name20').val('')
+		        $('#name21').val('')
+		        $('#name22').val('')
+		        $('#name23').val('')
+		        $('#name24').val('')
+		        $('#name25').val('')
+			}
+			
+			function xbox360() {
+				if ($('#name2').length == 0) {
+		        	$('#btnAdd').trigger('click');}
+				if ($('#name3').length == 0) {
+		        	$('#btnAdd').trigger('click');}
+				if ($('#name4').length == 0) {
+		        	$('#btnAdd').trigger('click');}
+								
+				$('#IDinput').val('xbox')
+				$('#name1').val('88')
+				$('#name2').val('3074')
+				$('#name3').val('53')
+				$('#name4').val('80')
+				$('#name5').val('')
+	        	$('#name6').val('')
+		        $('#name7').val('')
+		        $('#name8').val('')
+		        $('#name9').val('')
+		        $('#name10').val('')
+		        $('#name11').val('')
+		        $('#name12').val('')
+		        $('#name13').val('')
+		        $('#name14').val('')
+		        $('#name15').val('')
+		        $('#name16').val('')
+		        $('#name17').val('')
+		        $('#name18').val('')
+		        $('#name19').val('')
+		        $('#name20').val('')
+		        $('#name21').val('')
+		        $('#name22').val('')
+		        $('#name23').val('')
+		        $('#name24').val('')
+		        $('#name25').val('')
+			}
+			
+			function PS() {
+				if ($('#name2').length == 0) {
+		        	$('#btnAdd').trigger('click');}
+				if ($('#name3').length == 0) {
+		        	$('#btnAdd').trigger('click');}
+				if ($('#name4').length == 0) {
+		        	$('#btnAdd').trigger('click');}
+				if ($('#name5').length == 0) {
+		        	$('#btnAdd').trigger('click');}
+				if ($('#name6').length == 0) {
+		        	$('#btnAdd').trigger('click');}
+				if ($('#name7').length == 0) {
+		        	$('#btnAdd').trigger('click');}
+				if ($('#name8').length == 0) {
+		        	$('#btnAdd').trigger('click');}
+				if ($('#name9').length == 0) {
+		        	$('#btnAdd').trigger('click');}
+				if ($('#name10').length == 0) {
+		        	$('#btnAdd').trigger('click');}
+								
+				$('#IDinput').val('PS')
+				$('#name1').val('80')
+				$('#name2').val('443')
+				$('#name3').val('465')
+				$('#name4').val('983')
+				$('#name5').val('3478-3480')
+	        	$('#name6').val('3658')
+		        $('#name7').val('5223')
+		        $('#name8').val('6000-7000')
+		        $('#name9').val('9293')
+		        $('#name10').val('10070-10080')
+		        $('#name11').val('')
+		        $('#name12').val('')
+		        $('#name13').val('')
+		        $('#name14').val('')
+		        $('#name15').val('')
+		        $('#name16').val('')
+		        $('#name17').val('')
+		        $('#name18').val('')
+		        $('#name19').val('')
+		        $('#name20').val('')
+		        $('#name21').val('')
+		        $('#name22').val('')
+		        $('#name23').val('')
+		        $('#name24').val('')
+		        $('#name25').val('')
+			}       
 	    	
+			function chromecast() {
+				if ($('#name2').length == 0) {
+		        	$('#btnAdd').trigger('click');}
+				if ($('#name3').length == 0) {
+		        	$('#btnAdd').trigger('click');}
+				if ($('#name4').length == 0) {
+		        	$('#btnAdd').trigger('click');}
+				if ($('#name5').length == 0) {
+		        	$('#btnAdd').trigger('click');}
+				if ($('#name6').length == 0) {
+		        	$('#btnAdd').trigger('click');}
+								
+				$('#IDinput').val('chrome')
+				$('#name1').val('80')
+				$('#name2').val('1024')
+				$('#name3').val('1900')
+				$('#name4').val('8008')
+				$('#name5').val('8009')
+	        	$('#name6').val('32768-61000')
+		        $('#name7').val('')
+		        $('#name8').val('')
+		        $('#name9').val('')
+		        $('#name10').val('')
+		        $('#name11').val('')
+		        $('#name12').val('')
+		        $('#name13').val('')
+		        $('#name14').val('')
+		        $('#name15').val('')
+		        $('#name16').val('')
+		        $('#name17').val('')
+		        $('#name18').val('')
+		        $('#name19').val('')
+		        $('#name20').val('')
+		        $('#name21').val('')
+		        $('#name22').val('')
+		        $('#name23').val('')
+		        $('#name24').val('')
+		        $('#name25').val('')
+			}
+			
+			function dankort() {
+				if ($('#name2').length == 0) {
+		        	$('#btnAdd').trigger('click');}
+				if ($('#name3').length == 0) {
+		        	$('#btnAdd').trigger('click');}
+				if ($('#name4').length == 0) {
+		        	$('#btnAdd').trigger('click');}
+				if ($('#name5').length == 0) {
+		        	$('#btnAdd').trigger('click');}
+				if ($('#name6').length == 0) {
+		        	$('#btnAdd').trigger('click');}
+				if ($('#name7').length == 0) {
+		        	$('#btnAdd').trigger('click');}
+								
+				$('#IDinput').val('DK')
+				$('#name1').val('19000')
+				$('#name2').val('21')
+				$('#name3').val('50020')
+				$('#name4').val('13')
+				$('#name5').val('80')
+	        	$('#name6').val('5214')
+		        $('#name7').val('24000')
+		        $('#name8').val('')
+		        $('#name9').val('')
+		        $('#name10').val('')
+		        $('#name11').val('')
+		        $('#name12').val('')
+		        $('#name13').val('')
+		        $('#name14').val('')
+		        $('#name15').val('')
+		        $('#name16').val('')
+		        $('#name17').val('')
+		        $('#name18').val('')
+		        $('#name19').val('')
+		        $('#name20').val('')
+		        $('#name21').val('')
+		        $('#name22').val('')
+		        $('#name23').val('')
+		        $('#name24').val('')
+		        $('#name25').val('')
+			}
+			
+			function canaldigital() {
+				if ($('#name2').length == 0) {
+		        	$('#btnAdd').trigger('click');}
+				if ($('#name3').length == 0) {
+		        	$('#btnAdd').trigger('click');}
+				if ($('#name4').length == 0) {
+		        	$('#btnAdd').trigger('click');}
+								
+				$('#IDinput').val('CD')
+				$('#name1').val('80')
+				$('#name2').val('8080')
+				$('#name3').val('8888')
+				$('#name4').val('8889')
+				$('#name5').val('')
+	        	$('#name6').val('')
+		        $('#name7').val('')
+		        $('#name8').val('')
+		        $('#name9').val('')
+		        $('#name10').val('')
+		        $('#name11').val('')
+		        $('#name12').val('')
+		        $('#name13').val('')
+		        $('#name14').val('')
+		        $('#name15').val('')
+		        $('#name16').val('')
+		        $('#name17').val('')
+		        $('#name18').val('')
+		        $('#name19').val('')
+		        $('#name20').val('')
+		        $('#name21').val('')
+		        $('#name22').val('')
+		        $('#name23').val('')
+		        $('#name24').val('')
+		        $('#name25').val('')
+			}
 			
 			function showdiv() {
 		        var inputID = document.getElementById("IDinput");
 		        if (inputID.value == "") {
 		            alert("Husk at indtaste enhedens navn!");
+					return
 
 		        } else {
 		        	var ID = document.getElementById("IDinput").value;
@@ -190,6 +544,7 @@
 		        var inputIP = document.getElementById("IPinput");
 		        if (inputIP.value == "") {
 		            alert("Husk at indtaste enhedens IP!");
+					return
 
 		        } else {
 		        	var IP = document.getElementById("IPinput").value;
@@ -202,6 +557,7 @@
 		        } else {
 		            document.getElementById("item1").style.display = "block";
 		            document.getElementById("husk").style.display = "block";
+		            document.getElementById("select").style.display = "block";
 		            var PT1 = document.getElementById("name1").value;
 			        $("#PORT1").text(PT1);
 
@@ -212,6 +568,7 @@
 
 		        } else {
 		            document.getElementById("item2").style.display = "block";
+		            document.getElementById("select").style.display = "block";
 		            document.getElementById("husk").style.display = "block";
 		            var PT2 = document.getElementById("name2").value;
 			        $("#PORT2").text(PT2);
@@ -223,6 +580,7 @@
 
 		        } else {
 		            document.getElementById("item3").style.display = "block";
+		            document.getElementById("select").style.display = "block";
 		            document.getElementById("husk").style.display = "block";
 		            var PT3 = document.getElementById("name3").value;
 			        $("#PORT3").text(PT3);
@@ -234,6 +592,7 @@
 
 		        } else {
 		            document.getElementById("item4").style.display = "block";
+		            document.getElementById("select").style.display = "block";
 		            document.getElementById("husk").style.display = "block";
 		            var PT4 = document.getElementById("name4").value;
 			        $("#PORT4").text(PT4);
@@ -245,6 +604,7 @@
 
 		        } else {
 		            document.getElementById("item5").style.display = "block";
+		            document.getElementById("select").style.display = "block";
 		            document.getElementById("husk").style.display = "block";
 		            var PT5 = document.getElementById("name5").value;
 			        $("#PORT5").text(PT5);
@@ -256,6 +616,7 @@
 
 		        } else {
 		            document.getElementById("item6").style.display = "block";
+		            document.getElementById("select").style.display = "block";
 		            document.getElementById("husk").style.display = "block";
 		            var PT6 = document.getElementById("name6").value;
 			        $("#PORT6").text(PT6);
@@ -267,6 +628,7 @@
 
 		        } else {
 		            document.getElementById("item7").style.display = "block";
+		            document.getElementById("select").style.display = "block";
 		            document.getElementById("husk").style.display = "block";
 		            var PT7 = document.getElementById("name7").value;
 			        $("#PORT7").text(PT7);
@@ -279,6 +641,7 @@
 
 		        } else {
 		            document.getElementById("item8").style.display = "block";
+		            document.getElementById("select").style.display = "block";
 		            document.getElementById("husk").style.display = "block";
 			        $("#PORT9").text(PT8);
 		        }
@@ -289,6 +652,7 @@
 
 		        } else {
 		            document.getElementById("item9").style.display = "block";
+		            document.getElementById("select").style.display = "block";
 		            document.getElementById("husk").style.display = "block";
 			        var PT9 = document.getElementById("name9").value;
 			        $("#PORT9").text(PT9);
@@ -300,6 +664,7 @@
 
 		        } else {
 		            document.getElementById("item10").style.display = "block";
+		            document.getElementById("select").style.display = "block";
 		            document.getElementById("husk").style.display = "block";
 			        var PT10 = document.getElementById("name10").value;
 			        $("#PORT10").text(PT10);
@@ -311,6 +676,7 @@
 
 		        } else {
 		            document.getElementById("item11").style.display = "block";
+		            document.getElementById("select").style.display = "block";
 		            document.getElementById("husk").style.display = "block";
 			        var PT11 = document.getElementById("name11").value;
 			        $("#PORT11").text(PT11);
@@ -322,6 +688,7 @@
 
 		        } else {
 		            document.getElementById("item12").style.display = "block";
+		            document.getElementById("select").style.display = "block";
 		            document.getElementById("husk").style.display = "block";
 			        var PT12 = document.getElementById("name12").value;
 			        $("#PORT12").text(PT12);
@@ -333,6 +700,7 @@
 
 		        } else {
 		            document.getElementById("item13").style.display = "block";
+		            document.getElementById("select").style.display = "block";
 		            document.getElementById("husk").style.display = "block";
 			        var PT13 = document.getElementById("name13").value;
 			        $("#PORT13").text(PT13);
@@ -344,6 +712,7 @@
 
 		        } else {
 		            document.getElementById("item14").style.display = "block";
+		            document.getElementById("select").style.display = "block";
 		            document.getElementById("husk").style.display = "block";
 			        var PT14 = document.getElementById("name14").value;
 			        $("#PORT14").text(PT14);
@@ -355,6 +724,7 @@
 
 		        } else {
 		            document.getElementById("item15").style.display = "block";
+		            document.getElementById("select").style.display = "block";
 		            document.getElementById("husk").style.display = "block";
 			        var PT15 = document.getElementById("name15").value;
 			        $("#PORT15").text(PT15);
@@ -366,6 +736,7 @@
 
 		        } else {
 		            document.getElementById("item16").style.display = "block";
+		            document.getElementById("select").style.display = "block";
 		            document.getElementById("husk").style.display = "block";
 			        var PT16 = document.getElementById("name16").value;
 			        $("#PORT16").text(PT16);
@@ -377,6 +748,7 @@
 
 		        } else {
 		            document.getElementById("item17").style.display = "block";
+		            document.getElementById("select").style.display = "block";
 		            document.getElementById("husk").style.display = "block";
 			        var PT17 = document.getElementById("name17").value;
 			        $("#PORT17").text(PT17);
@@ -388,6 +760,7 @@
 
 		        } else {
 		            document.getElementById("item18").style.display = "block";
+		            document.getElementById("select").style.display = "block";
 		            document.getElementById("husk").style.display = "block";
 			        var PT18 = document.getElementById("name18").value;
 			        $("#PORT18").text(PT18);
@@ -399,6 +772,7 @@
 
 		        } else {
 		            document.getElementById("item19").style.display = "block";
+		            document.getElementById("select").style.display = "block";
 		            document.getElementById("husk").style.display = "block";
 			        var PT19 = document.getElementById("name19").value;
 			        $("#PORT19").text(PT19);
@@ -410,6 +784,7 @@
 
 		        } else {
 		            document.getElementById("item20").style.display = "block";
+		            document.getElementById("select").style.display = "block";
 		            document.getElementById("husk").style.display = "block";
 			        var PT20 = document.getElementById("name20").value;
 			        $("#PORT20").text(PT20);
@@ -421,6 +796,7 @@
 
 		        } else {
 		            document.getElementById("item21").style.display = "block";
+		            document.getElementById("select").style.display = "block";
 		            document.getElementById("husk").style.display = "block";
 			        var PT21 = document.getElementById("name21").value;
 			        $("#PORT21").text(PT21);
@@ -432,6 +808,7 @@
 
 		        } else {
 		            document.getElementById("item22").style.display = "block";
+		            document.getElementById("select").style.display = "block";
 		            document.getElementById("husk").style.display = "block";
 			        var PT22 = document.getElementById("name22").value;
 			        $("#PORT22").text(PT22);
@@ -443,6 +820,7 @@
 
 		        } else {
 		            document.getElementById("item23").style.display = "block";
+		            document.getElementById("select").style.display = "block";
 		            document.getElementById("husk").style.display = "block";
 			        var PT23 = document.getElementById("name23").value;
 			        $("#PORT23").text(PT23);
@@ -454,6 +832,7 @@
 
 		        } else {
 		            document.getElementById("item24").style.display = "block";
+		            document.getElementById("select").style.display = "block";
 		            document.getElementById("husk").style.display = "block";
 		            var PT24 = document.getElementById("name24").value;
 			        $("#PORT24").text(PT24);
@@ -465,6 +844,7 @@
 
 		        } else {
 		            document.getElementById("item25").style.display = "block";
+		            document.getElementById("select").style.display = "block";
 		            document.getElementById("husk").style.display = "block";
 			        var PT25 = document.getElementById("name25").value;
 			        $("#PORT25").text(PT25);
@@ -474,13 +854,15 @@
 	</head>
 	<body>
 
-	<div id=top> <h1><b>Portforwaarding generator</b></h1> </div>
+	<div id=top> <h1><b>Portforwarding generator</b></h1> </div>
 
-	<div id=left>
+	<div id=left class="card2 card-6">
 
 		<div>
-	        <input type="button" id="btnAdd" value="Tilføj port" />
-	        <input type="button" id="btnDel" value="Fjern port" />
+	        <input type="button" class="button" id="btnAdd" value="Tilføj port" />
+	        <input type="button" class="button" id="btnDel" value="Fjern port" />
+	    	<br>
+	    	<br>
 	    </div>
 
 	<form id="myForm">
@@ -493,17 +875,32 @@
 	    <div id="input1" class="clonedInput">
 	        <input type="text" name="name1" id="name1" placeholder="Port 1" />
 	    </div>
-	    <input id="kor" type='button' class="button" onclick='showdiv()' value='Kør' />
-	    <input type='button' class="button2" onclick='canaldigital()' value='Canal Digital GO'/>
-	    <input type='button' class="button2" onclick='appletv()' value='Apple TV'/>
+	    
 	</form>
+	
+	<div id="formkor">
+		<br>
+		<input id="kor" type='button' class="button" onclick='showdiv()' value='Kør' />
+		<select onchange="choose()" id="dropdown">
+			<option value="">Vælg tjeneste</option>
+			<option id="atv" value="appletv">Apple TV</option>
+			<option id="sonos" value="sonos">Sonos</option>
+			<option id="x1" value="xbox1">Xbox One</option>
+			<option id="x360" value="xbox360">Xbox 360</option>
+			<option id="ps" value="PS">Playstation 4</option>
+			<option id="dk" value="dankort">Dankort</option>
+			<option id="cc" value="chromecast">Chromecast</option>
+			<option id="go" value="canaldigital">Canaldigital GO</option>
+		</select>
+	</div>
+	
 	</div>
 
-	<div id=right>    
-	    <blockquote>
+	<div id=right class="card card-5">    
+	    
 
-            <div id="select">
-
+        <div id="select" style="display:none">
+           	<blockquote>
                 <div id="item1" style="display:none">
                     <p>:service host add name=<span class="ID1">ID</span>1
                         <br> :service host rule add name=<span class="ID1">ID</span>1 protocol=any portrange=<span id='PORT1'>ID</span>
@@ -653,9 +1050,9 @@
                         <br> :service host rule add name=<span class="ID1">ID</span>15 protocol=any portrange=<span id='PORT25'>ID</span>
                         <br> :service host assign name=<span class="ID1">ID</span>15 host=<span class='IP1'>ID</span> log=disabled </p>
                 </div>
-
-            </div>
-		</blockquote>
+            </blockquote>
+        </div>
+		
 
 			<div id="husk" style="display:none">
 
