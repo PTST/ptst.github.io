@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Demo</title>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	    <meta name="description" content="Demo project">
+	    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<style type="text/css">
+		    <style scoped>
+
+		        .button-success,
+		        .button-error,
+		        .button-warning,
+		        .button-secondary {
+		            color: white;
+		            border-radius: 4px;
+		            text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+		        }
+
+		        .button-success {
+		            background: rgb(28, 184, 65); /* this is a green */
+		        }
+
+		        .button-error {
+		            background: rgb(202, 60, 60); /* this is a maroon */
+		        }
+
+		        .button-warning {
+		            background: rgb(223, 117, 20); /* this is an orange */
+		        }
+
+		        .button-secondary {
+		            background: rgb(66, 184, 221); /* this is a light blue */
+		        }
+		</style>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		<script type="text/javascript">
+			function coloc(){
+				document.getElementById("vlandiv").style.display = "none";
+				document.getElementById("crossdiv").style.display = "none";
+				document.getElementById("trunkdiv").style.display = "block";
+				document.getElementById("reprovdiv").style.display = "block";
+				document.getElementById("coloc-btn").className = "button-success pure-button";
+				document.getElementById("tdc-btn").className = "button-error pure-button";
+				$('#vlan').attr('checked', false);
+				$('#cross').attr('checked', false);
+			}
+
+			function TDC(){
+				document.getElementById("vlandiv").style.display = "block";
+				document.getElementById("crossdiv").style.display = "block";
+				document.getElementById("trunkdiv").style.display = "none";
+				document.getElementById("reprovdiv").style.display = "none";
+				document.getElementById("coloc-btn").className = "button-error pure-button";
+				document.getElementById("tdc-btn").className = "button-success pure-button";
+				$('#Trunks').attr('checked', false);
+				$('#reprov').attr('checked', false);
+
+			}
+
+			function createticket(){
+					var inputdsl = document.getElementById("DSLnummer").value;
+			        if (inputdsl.value == "") {
+			            document.getElementById("fejldsl").style.display = "none";
+
+			        } else {
+			        	$(".dslnummer").text(inputdsl);
+			        	document.getElementById("fejldsl").style.display = "block";
+			        }
+
+			        var inputcircuit = document.getElementById("circuit").value;
+			        if (inputcircuit.value == "") {
+			            document.getElementById("fejlcircuit").style.display = "none";
+
+			        } else {
+			        	$(".circuit").text(inputcircuit);
+			        	document.getElementById("fejlcircuit").style.display = "block";
+			        }
+
+			        var trunkinput = document.getElementById("trunknr").value;
+			        if (trunkinput.value == "") {
+			            document.getElementById("trunkchange").style.display = "none";
+			            document.getElementById("trunkspace").style.display = "none";
+
+			        } else {
+			        	$(".trunknr").text(trunkinput);
+			        	document.getElementById("trunkchange").style.display = "inline-block";
+			        	document.getElementById("trunkspace").style.display = "inline-block";
+			        }
+
+					if ($('#adresse').is(':checked')) {
+						document.getElementById("fejl1").style.display = "block";
+					}else{
+						document.getElementById("fejl1").style.display = "none";
+					}
+
+					if ($('#cables').is(':checked')) {
+						document.getElementById("fejl2").style.display = "block";
+					}else{
+						document.getElementById("fejl2").style.display = "none";
+					}
+
+					if ($('#dsl').is(':checked')) {
+						document.getElementById("fejl3").style.display = "block";
+					}else{
+						document.getElementById("fejl3").style.display = "none";
+					}
+
+					if ($('#onlinedato').is(':checked')) {
+						document.getElementById("fejl4").style.display = "block";
+					}else{
+						document.getElementById("fejl4").style.display = "none";
+					}
+
+					if ($('#CLB').is(':checked')) {
+						document.getElementById("fejl5").style.display = "block";
+					}else{
+						document.getElementById("fejl5").style.display = "none";
+					}
+
+					if ($('#fas').is(':checked')) {
+						document.getElementById("fejl6").style.display = "block";
+					}else{
+						document.getElementById("fejl6").style.display = "none";
+					}
+
+					if ($('#Reset').is(':checked')) {
+						document.getElementById("fejl7").style.display = "block";
+					}else{
+						document.getElementById("fejl7").style.display = "none";
+					}
+
+					if ($('#Testhastighed').is(':checked')) {
+						document.getElementById("fejl8").style.display = "block";
+					}else{
+						document.getElementById("fejl8").style.display = "none";
+					}
+
+					if ($('#Trunks').is(':checked')) {
+						document.getElementById("fejl9").style.display = "block";
+					}else{
+						document.getElementById("fejl9").style.display = "none";
+					}
+
+					if ($('#vlan').is(':checked')) {
+						document.getElementById("fejl10").style.display = "block";
+					}else{
+						document.getElementById("fejl10").style.display = "none";
+					}
+
+					if ($('#Hovedstik').is(':checked')) {
+						document.getElementById("fejl11").style.display = "block";
+					}else{
+						document.getElementById("fejl11").style.display = "none";
+					}
+
+					if ($('#reprov').is(':checked')) {
+						document.getElementById("fejl12").style.display = "block";
+					}else{
+						document.getElementById("fejl12").style.display = "none";
+					}
+
+					if ($('#cross').is(':checked')) {
+						document.getElementById("fejl13").style.display = "block";
+					}else{
+						document.getElementById("fejl13").style.display = "none";
+					}
+
+					if ($('#adresse').is(':checked') || $('#cables').is(':checked') || $('#dsl').is(':checked') || $('#onlinedato').is(':checked') || $('#CLB').is(':checked') || $('#fas').is(':checked') || $('#Reset').is(':checked') || $('#Testhastighed').is(':checked') || $('#Trunks').is(':checked') || $('#vlan').is(':checked') || $('#Hovedstik').is(':checked') || $('#reprov').is(':checked') || $('#cross').is(':checked')) {
+						document.getElementById("fejl0").style.display = "block";
+					}else{
+						document.getElementById("fejl0").style.display = "none";	
+					}
+				
+
+					
+			}
+		</script>
+	</head>
+	<body>
+		<div id="inputform">
+
+			<input id="tdc-btn" type='button' onclick='TDC()' value='EBSA/VULA' class="button-secondary pure-button" />
+			<input id="coloc-btn" type='button' onclick='coloc()' value='Colocation' class="button-secondary pure-button" />
+
+			<form action="/my-handling-form-page" method="post" class="pure-form pure-form-aligned">
+			    <div class="pure-control-group">
+			        <label for="dslnummer">dsl nummer:</label>
+			        <input type="text" id="DSLnummer" placeholder="dsl nummer" />
+			    </div>
+			    <div class="pure-control-group">
+			        <label for="circuit">Kredsløbsnummer:</label>
+			        <input type="text" id="circuit" placeholder="Kredsløbsnummer" />
+			    </div>
+			    <div class="pure-control-group">
+			        <label for="adresse">Adresse:</label>
+			        <input type="checkbox" id="adresse" />
+			    </div>
+			    <div class="pure-control-group">
+			        <label for="cables">Kabeltjek:</label>
+			        <input type="checkbox" id="cables" />
+			    </div>
+			    <div class="pure-control-group">
+			        <label for="dsl">DSL Lampe:</label>
+			        <input type="checkbox" id="dsl" />
+			    </div>
+			    <div class="pure-control-group">
+			        <label for="onlinedato">Onlinedato:</label>
+			        <input type="checkbox" id="onlinedato" />
+			    </div>
+			    <div class="pure-control-group">
+			        <label for="CLB">Columbine:</label>
+			        <input type="checkbox" id="CLB" />
+			    </div>
+			    <div class="pure-control-group">
+			        <label for="fas">Fasin:</label>
+			        <input type="checkbox" id="fas" />
+			    </div>
+			    <div class="pure-control-group">
+			        <label for="Reset">Reset:</label>
+			        <input type="checkbox" id="Reset" />
+			    </div>
+			    <div class="pure-control-group">
+			        <label for="Testhastighed">Testhastighed:</label>
+			        <input type="checkbox" id="Testhastighed" />
+			    </div>
+			    <div id="trunkdiv" class="pure-control-group">
+			        <label for="Trunks">Trunks:</label>
+			        <input type="checkbox" id="Trunks" />
+			        <input type="text" id="trunknr" placeholder="Trunk nummer">
+			    </div>
+			    <div id="vlandiv" class="pure-control-group">
+			        <label for="vlan">VLAN:</label>
+			        <input type="checkbox" id="vlan" />
+			    </div>
+			    <div class="pure-control-group">
+			        <label for="Hovedstik">Hovedstik:</label>
+			        <input type="checkbox" id="Hovedstik" />
+			    </div>
+			    <div id="reprovdiv" class="pure-control-group">
+			        <label for="reprov">Reprovisionering:</label>
+			        <input type="checkbox" id="reprov" />
+			    </div>
+			    <div id="crossdiv" class="pure-control-group">
+			        <label for="cross">Crossconnection:</label>
+			        <input type="checkbox" id="cross" />
+			    </div>
+			</form>
+
+				<input id="kor" type='button' class="button" onclick='createticket()' value='Kør' />
+				
+				<blockquote>
+				<div id="topinfo">
+					<div id="fejldsl" style="display:block"><span class="dslnummer"> </span></div>
+					<div id="fejlcircuit" style="display:block"><span class="circuit"> </span></div>
+					<br>
+
+				</div>
+					<div id="fejl0" style="display:none"><b>Fejlretning:</b>
+					<div id="fejl1" style="display:none">Adresse -ok</div>
+					<div id="fejl2" style="display:none">Kabeltjek -ok</div>
+					<div id="fejl3" style="display:none">DSL -ok</div>
+					<div id="fejl4" style="display:none">Onlinedato -ok</div>
+					<div id="fejl5" style="display:none">Columbine -ok</div>
+					<div id="fejl6" style="display:none">Fasin -ok</div>
+					<div id="fejl7" style="display:none">Reset -ok</div>
+					<div id="fejl8" style="display:none">Testhastighed -ok</div>
+					<div id="fejl9" style="display:none">Trunks -ok<span id="trunkspace" style="display:none"><p>&nbsp;</p></span><span style="display:none" id="trunkchange" class="trunknr"> </span></div>
+					<div id="fejl10" style="display:none">VLAN -ok</div>
+					<div id="fejl11" style="display:none">Hovedstik -ok</div>
+					<div id="fejl12" style="display:none">Reprovisioneret -ok</div>
+					<div id="fejl13" style="display:none">Crossconnection -ok</div>
+				</div>
+				</blockquote>
+		</div>
+	</body>
+</html>
