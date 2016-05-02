@@ -1,0 +1,279 @@
+<html>
+<head>
+<title>Huawei Mac</title>
+<meta charset="utf-8">
+<meta name="description" content="Huawei">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style type="text/css">
+
+body {
+    margin: 60px auto;
+    width: 70%;
+}
+nav ul, footer ul {
+    font-family:'Helvetica', 'Arial', 'Sans-Serif';
+    padding: 0px;
+    list-style: none;
+    font-weight: bold;
+}
+nav ul li, footer ul li {
+    display: inline;
+    margin-right: 20px;
+}
+a {
+    text-decoration: none;
+    color: #999;
+}
+a:hover {
+    text-decoration: underline;
+}
+h1 {
+    font-size: 3em;
+    font-family:'Helvetica', 'Arial', 'Sans-Serif';
+}
+p {
+    font-size: 1.5em;
+    line-height: 1.4em;
+    color: #333;
+	font-family:'Helvetica', 'Arial', 'Sans-Serif';
+}
+li {
+	font-size: 1.5em;
+	color: #333;
+	font-family:'Helvetica', 'Arial', 'Sans-Serif';
+}
+footer {
+    border-top: 1px solid #d5d5d5;
+    font-size: .8em;
+}
+
+ul.posts { 
+    margin: 20px auto 40px; 
+    font-size: 1.5em;
+}
+
+ul.posts li {
+    list-style: none;
+}
+blockquote {
+	        font-size: 1.5em;
+	        margin-top: 10px;
+	        margin-bottom: 10px;
+	        margin-left: 50px;
+	        padding-left: 15px;
+	        border-left: 3px solid #ccc;
+			font-family:'Helvetica', 'Arial', 'Sans-Serif';
+		}
+
+
+
+</style>
+<body>
+<h1>Installer Huawei dongles på Mac OS X 10.11 El Capitan</h1>
+
+<p>Apple har med den nyeste opdatering, indført at alle drivere skal signeres af Apple, før de kan installeres på OS X.
+
+Dette er grunden til at Mobile Partner ikke kan starte op på Mac mere.</p>
+
+<p>For at omgå dette gør følgende</p>
+<ol>
+<li>Åbn Finder</li>
+<li>Åbn Programmer</li>
+<li>Åbn Hjælpeprogrammer</li>
+</ol>
+<img id="the_pic" class="center fit" src="https://raw.githubusercontent.com/PTST/PTST.github.io/master/Images/huawei/01s.png" width="100%" >
+
+<p>Åbn Terminal</p>
+
+*Note: Alle programmer kan også findes ved at at trykke cmd+mellemrum hvorved der kommer et søgefelt frem hvor man kan skrive navnet på programmet ind og åbne det ved at trykke enter.*
+
+<img id="the_pic" class="center fit" src="https://raw.githubusercontent.com/PTST/PTST.github.io/master/Images/huawei/02s.png" width="100%" >
+										  
+
+<p>I terminal indtastes</p>
+
+<blockquote>
+csrutil status
+</blockquote>
+
+<p>og tryk enter</p>
+
+
+<img id="the_pic" class="center fit" src="https://raw.githubusercontent.com/PTST/PTST.github.io/master/Images/huawei/03s.png" width="100%" >
+
+<p>Hvis Terminal melder "System Integrity Protection status: enabled" så vil Huawei donglen ikke fungere før vi har ændret status til disabled.</p>
+
+<img id="the_pic" class="center fit" src="https://raw.githubusercontent.com/PTST/PTST.github.io/master/Images/huawei/04s.png" width="100%" >
+
+<p>For at slå "System Integrity Status" fra skal vi have startet Mac'en op i gendannelses tilstand, dette gøre ved at</p>
+
+<ol>
+<li>Tryk på æble ikonet oppe i venstre hjørne af menubaren</li>
+<li>Tryk på “Start igen”</li>
+</ol>
+
+<img id="the_pic" class="center fit" src="https://raw.githubusercontent.com/PTST/PTST.github.io/master/Images/huawei/05s.png" width="100%" >
+
+<p>Derefter trykkes der på "Start igen" knappen på i pop-up vinduet der kommer frem</p>
+
+<img id="the_pic" class="center fit" src="https://raw.githubusercontent.com/PTST/PTST.github.io/master/Images/huawei/06s.png" width="100%" >
+
+<p>Mens computeren genstarter er det vigtigt at kunden holder knapperne cmd+r nede indtil følgende billede vises på skærmen</p>
+
+<img id="the_pic" class="center fit" src="https://raw.githubusercontent.com/PTST/PTST.github.io/master/Images/huawei/07s.png" width="100%" >
+
+<p>Herefter trykkes der på</p>
+
+<ol>
+<li>Hjælpeprogrammer i menubaren i toppen af skærmen</li>
+<li>Terminal</li>
+</ol>
+
+<img id="the_pic" class="center fit" src="https://raw.githubusercontent.com/PTST/PTST.github.io/master/Images/huawei/08s.png" width="100%" >
+
+<p>I det Terminal vindue der åbnes indtastes</p>
+<blockquote>
+csrutil disable; reboot
+</blockquote>
+<p>herefter trykkes der enter og computeren vil kortvarigt herefter genstarte.</p>
+
+<img id="the_pic" class="center fit" src="https://raw.githubusercontent.com/PTST/PTST.github.io/master/Images/huawei/09s.png" width="100%" >
+
+<p>Når computeren er startet op igen skal du ind i en browser og indtaste denne adresse:</p>
+
+<blockquote>
+http://bit.ly/telenormac
+</blockquote>
+
+<p>Virker kortlinket ikke, er den fulde adresse</p>
+
+<blockquote>
+https://miapple.me/download/huawei/MobileConnectDriver.zip
+</blockquote>
+
+<p>Herefter skal vi have udpakket den ZIP fil der er blevet hentet, dette gøre ved at</p>
+
+<ol>
+<li>Åbne Finder</li>
+<li>Trykke på Overførsler</li>
+<li>Dobbeltklikke på filen "MobileConnectDriver.zip"</li>
+</ol>
+
+<img id="the_pic" class="center fit" src="https://raw.githubusercontent.com/PTST/PTST.github.io/master/Images/huawei/10s.png" width="100%" >
+
+<p>Når filen er udpakket dobbeltklikkes der herefter på "MobileConnectDriver(4.25.45.00).pkg"</p>
+
+<img id="the_pic" class="center fit" src="https://raw.githubusercontent.com/PTST/PTST.github.io/master/Images/huawei/11s.png" width="100%" >
+
+<p>Driveren installeres ved at trykke Fortsæt</p>
+
+<img id="the_pic" class="center fit" src="https://raw.githubusercontent.com/PTST/PTST.github.io/master/Images/huawei/12s.png" width="100%" >
+
+<p>Fortsæt igen</p>
+
+<img id="the_pic" class="center fit" src="https://raw.githubusercontent.com/PTST/PTST.github.io/master/Images/huawei/13s.png" width="100%" >
+
+<p>Tryk agree på den pop-up der kommer frem</p>
+
+<img id="the_pic" class="center fit" src="https://raw.githubusercontent.com/PTST/PTST.github.io/master/Images/huawei/14s.png" width="100%" >
+
+<p>Tryk Installer</p>
+
+<img id="the_pic" class="center fit" src="https://raw.githubusercontent.com/PTST/PTST.github.io/master/Images/huawei/15s.png" width="100%" >
+
+<p>Herefter skal du</p>
+
+<ol>
+<li>indtaste din adgangskode til computeren</li>
+<li>Trykke på "Installer software"</li>
+</ol>
+
+<img id="the_pic" class="center fit" src="https://raw.githubusercontent.com/PTST/PTST.github.io/master/Images/huawei/16s.png" width="100%" >
+
+<p>Lad driveren installere</p>
+
+<img id="the_pic" class="center fit" src="https://raw.githubusercontent.com/PTST/PTST.github.io/master/Images/huawei/17s.png" width="100%" >
+
+<p>Når driveren er færdig med at installere</p>
+
+<ol>
+<li>Tryk på Systemindstillinger</li>
+<li>Tryk på Netværk</li>
+</ol>
+
+<p>Ligger Systemindstillinger ikke i docken, så kan den findes i Programmer mappen i finder.</p>
+
+<img id="the_pic" class="center fit" src="https://raw.githubusercontent.com/PTST/PTST.github.io/master/Images/huawei/18s.png" width="100%" >
+
+<p>Tryk på plus tegnet</p>
+
+<img id="the_pic" class="center fit" src="https://raw.githubusercontent.com/PTST/PTST.github.io/master/Images/huawei/19s.png" width="100%" >
+
+<p>Tryk på drop-down menuen ved Grænseflade</p>
+
+<img id="the_pic" class="center fit" src="https://raw.githubusercontent.com/PTST/PTST.github.io/master/Images/huawei/20s.png" width="100%" >
+
+<p>Vælg HUAWEIMobile-Modem</p>
+
+<img id="the_pic" class="center fit" src="https://raw.githubusercontent.com/PTST/PTST.github.io/master/Images/huawei/21s.png" width="100%" >
+
+<p>Tryk på Opret</p>
+
+<img id="the_pic" class="center fit" src="https://raw.githubusercontent.com/PTST/PTST.github.io/master/Images/huawei/22s.png" width="100%" >
+
+<p>Så skal vi indtaste APN indstillingerne</p>
+
+<img id="the_pic" class="center fit" src="https://raw.githubusercontent.com/PTST/PTST.github.io/master/Images/huawei/23s.png" width="100%" >
+
+<p>Dette gøres ved at</p>
+
+<ol>
+<li>Ved Telefon nummer taster *99#</li>
+<li>Ved kontonavn skrives der telenor</li>
+<li>Derefter sættes der hak i "Vis modemstatus på menulinje"</li>
+<li>Der trykkes Tilslut</li>
+</ol>
+
+<img id="the_pic" class="center fit" src="https://raw.githubusercontent.com/PTST/PTST.github.io/master/Images/huawei/24-2s.png" width="100%" >
+
+<p>Tryk på Anvend</p>
+
+<img id="the_pic" class="center fit" src="https://raw.githubusercontent.com/PTST/PTST.github.io/master/Images/huawei/25s.png" width="100%" >
+
+<p>Tryk på ok</p>
+
+<img id="the_pic" class="center fit" src="https://raw.githubusercontent.com/PTST/PTST.github.io/master/Images/huawei/26s.png" width="100%" >
+
+<p>Tjek at status skifter til Tilsluttet</p>
+
+<img id="the_pic" class="center fit" src="https://raw.githubusercontent.com/PTST/PTST.github.io/master/Images/huawei/27s.png" width="100%" >
+
+<p>Til sidst er her en guide til hvordan du opretter og afbryder forbindelsen til det mobile bredbånd</p>
+
+<p>Forbindelsen afbrydes ved at</p>
+
+<ol>
+<li>Trykke på telefon ikonet i menubaren</li>
+<li>Tryk på Afbryd forbindelse</li>
+</ol>
+
+<img id="the_pic" class="center fit" src="https://raw.githubusercontent.com/PTST/PTST.github.io/master/Images/huawei/28s.png" width="100%" >
+
+<p>Der forbindes til det mobile bredbånd ved at</p>
+
+<ol>
+<li>Trykke på telefon ikonet</li>
+<li>Trykke på Opret forbindelse</li>
+</ol>
+
+<img id="the_pic" class="center fit" src="https://raw.githubusercontent.com/PTST/PTST.github.io/master/Images/huawei/29s.png" width="100%" >
+
+<p>Hver gang du opretter forbindelse ville denne pop op komme frem, og spørge efter en adgangskode, du skal bare trykke ok.</p>
+
+<img id="the_pic" class="center fit" src="https://raw.githubusercontent.com/PTST/PTST.github.io/master/Images/huawei/30s.png" width="100%" >
+
+<p>Så er du online.</p>
+
+<img id="the_pic" class="center fit" src="https://raw.githubusercontent.com/PTST/PTST.github.io/master/Images/huawei/31s.png" width="100%" >
+</body>
+</html>
