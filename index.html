@@ -27,8 +27,8 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	    <meta name="description" content="Steffensen.io">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" type="text/css" href="Content/CSS/stylesheet.css">
 		<style type="text/css">
-
 			@font-face {
     			font-family: "HelveticaNeue";
     			src: url("Content/Fonts/HelveticaNeue.ttf");
@@ -39,165 +39,44 @@
     			src: url("Content/Fonts/HelveticaNeue.ttf");
     			font-weight: bold;
 			}
-
-			#top {
-				background-color: #5ebefb;
-				height: 80px;
-				width: 1100px;
-			}
-
-			#menubar {
-				background-color: #FFFFFF;
-				height: 250px;
-				width: 1100px;
-				box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.5);
-				position: relative;
-			}
-
-			#bottom {
-				background-color: #5ebefb;
-				height: 370px;
-				width: 1100px;
-			}
-
-			#logotype {
-				position: absolute;
-    			top: 19px;
-    			left: 18px;
-
-    			
-			}
-
-			#io {
-				position: absolute;
-				left: 352px;
-				top: 46px;
-
-
-			}
-
-			h1 {
-				margin: 0px 0px 0px 0px;
-				font-size: 53px;
-				font-family: HelveticaNeue;
-				color: #ffffff;
-			}
-
-			h2 {
-				margin: 0px 0px 0px 0px;
-				font-family: HelveticaNeue;
-				font-size: 24px;
-				color: #ffffff;
-			}
-
-			.line {
-				width: 1px;
-				height: 240px;
-				border: solid 1px #e6e6e6;
-				background-color: #e6e6e6;
-			}
-
-			body {
-				margin-top: 10px;
-				margin-right: 10px;
-				margin-bottom: 10px;
-				margin-left: 10px;
-				background-color: #ffffff;
-	    	}
-
-	    	p {
-	    		margin: 1px 1px 1px 1px;
-	    		word-wrap: break-word;
-	    	}
-
-	    	#menu1 {
-	    		height: 250px;
-	    		width: 274px;
-	    		position: absolute;
-	    		top: 0px;
-	    		left: 0px;
-	    	}
-
-	    	#menu2 {
-	    		height: 250px;
-	    		width: 273px;
-	    		position: absolute;
-	    		top: 0px;
-	    		left: 274px;
-	    	}
-
-	    	#menu3 {
-	    		height: 250px;
-	    		width: 274px;
-	    		position: absolute;
-	    		top: 0px;
-	    		left: 547px;
-	    	}
-
-	    	#menu4 {
-	    		height: 250px;
-	    		width: 274px;
-	    		position: absolute;
-	    		top: 0px;
-	    		left: 820px;
-	    	}
-
-	    	#bottom-left {
-	    		height: 330px;
-	    		width: 394px;
-	    		position: absolute;
-	    		top: 360px;
-	    		left: 26px;
-	    		text-align: justify;
-	    	}
-
-	    	#bottom-center {
-	    		height: 250px;
-	    		width: 274px;
-	    		position: absolute;
-	    		top: 0px;
-	    		left: 820px;
-	    	}
-
-	    	#bottom-right {
-	    		height: 330px;
-	    		width: 394px;
-	    		position: absolute;
-	    		top: 360px;
-	    		left: 700px;
-	    		text-align: justify;
-
-	    	}
-
-	    	h3 {
-	    		width: 265px;
-				height: 28px;
-				font-family: HelveticaNeue;
-				font-size: 24px;
-				color: #000000;
-				text-align: right;
-	    	}
-
-	    	p {
-	    		font-family: HelveticaNeue;
-	    		font-size: 18px;
-	    		color: #ffffff
-	    	}
-
 		</style>
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		<script src="Content/Scripts/telnet.js"></script>
+ 
+	    <script type="text/javascript">
+
+	    function telnetexpand() {
+	    	document.getElementById("menubar").style.display = "none";
+	    	document.getElementById("telnetcontent").style.display = "block";
+	    }
+
+	    function macexpand() {
+	    	document.getElementById("menubar").style.display = "none";
+	    	document.getElementById("maccontent").style.display = "block";
+	    }
+
+	    function despander() {
+	    	document.getElementById("menubar").style.display = "block";
+	    	document.getElementById("telnetcontent").style.display = "none";
+	    	document.getElementById("maccontent").style.display = "none";
+	    }
+
+	    </script>
+
 	</head>
 	<body>
 
 	<div id="top">
-		<h1 id="logotype">STEFFENSEN</h1><h2 id="io">.io</h2>
+		<h1 id="logotype"><a href="index.html">STEFFENSEN</a></h1><h2 id="io"><a href="index.html">.io</a></h2>
 	</div>
 	<div id="menubar">
-		<a id="menu1" href="http://steffensen.io/portfw.html">
+		<a id="menu1" onclick="telnetexpand()">
 			<img src="Content/Images/telnet.svg" style="position: absolute; margin-left: 44px; margin-top: 43px">
 			<h3 style="position: absolute; top: 192px; left: 5px">Portforward generator</h3>
 		</a>
 		<div id="line1" class="line" style="position: absolute; top: 5px; left: 274px"></div>
-		<a id="menu2" href="http://steffensen.io/huawei.html">
+		<a id="menu2" onclick="macexpand()">
 			<img src="Content/Images/mac.svg" style="position: absolute; margin-left: 16px; margin-top: 44px">
 			<h3 style="position: absolute; top: 192px; left: 5px">MBB på Mac</h3>
 		</a>
@@ -212,16 +91,437 @@
 			<h3 style="position: absolute; top: 192px; left: 5px">Kommer snart</h3>
 		</a>
 	</div>
-	<div id="bottom">
-		<div id="bottom-left"><p>The path of the righteous man is beset on all sides by the iniquities of the selfish and the tyranny of evil men. Blessed is he who, in the name of charity and good will, shepherds the weak through the valley of darkness, for he is truly his brother's keeper and the finder of lost children. And I will strike down upon thee with great vengeance and furious anger those who would attempt to poison and destroy My brothers. And you will know My name is the Lord when I lay My vengeance upon thee.
 
-Your bones don't break, mine do. That's clear. Your cells react to bacteria and viruses differently than mine. You don't get sick, I do.</p></div>
+	<div id="telnetcontent" style="display:none">
+	
+		<input type='button' class="despand" onclick='despander()' value='Tilbage' style="margin-left: 10px; margin-top: 10px;" /><br>
+
+		<div id=left class="telnetinput">
+
+			<div>
+		        <input type="button" class="button" id="btnAdd" value="Tilføj port" />
+		        <input type="button" class="button" id="btnDel" value="Fjern port" />
+		    	<br>
+		    	<br>
+		    </div>
+
+		<form id="myForm">
+			<div id="formstart">
+				<input type="text" id="IDinput" autofocus placeholder="Navn på enhed" />
+	            <br>
+	        	<input type='text' id='IPinput' placeholder='IP på enhed' />
+	            <br>	
+			</div>
+		    <div id="input1" class="clonedInput">
+		        <input type="text" name="name1" id="name1" placeholder="Port 1" />
+		    </div>
+		    
+		</form>
 		
-		<div id="bottom-center" style="position: absolute; top: 390px; left: 435px;"><img src="Content/Images/logo.svg"></div>
+		<div id="formkor">
+			<br>
+			<input id="kor" type='button' class="button" onclick='showdiv()' value='Kør' />
+			<select onchange="choose()" id="dropdown">
+				<option value="">Vælg tjeneste</option>
+				<option id="atv" value="appletv">Apple TV</option>
+				<option id="sonos" value="sonos">Sonos</option>
+				<option id="x1" value="xbox1">Xbox One</option>
+				<option id="x360" value="xbox360">Xbox 360</option>
+				<option id="ps" value="PS">Playstation 4</option>
+				<option id="dk" value="dankort">Dankort</option>
+				<option id="cc" value="chromecast">Chromecast</option>
+				<option id="go" value="canaldigital">Canaldigital GO</option>
+			</select>
+			<br>
+			<br>
+		</div>
+		
+		</div>
 
-		<div id="bottom-right"><p>The path of the righteous man is beset on all sides by the iniquities of the selfish and the tyranny of evil men. Blessed is he who, in the name of charity and good will, shepherds the weak through the valley of darkness, for he is truly his brother's keeper and the finder of lost children. And I will strike down upon thee with great vengeance and furious anger those who would attempt to poison and destroy My brothers. And you will know My name is the Lord when I lay My vengeance upon thee.
+		<div id=right class="telnetoutput">    
+		    
 
-Your bones don't break, mine do. That's clear. Your cells react to bacteria and viruses differently than mine. You don't get sick, I do.</p></div>
+	        <div id="select" style="display:none">
+	           	<blockquote>
+	                <div id="item1" style="display:none">
+	                    <p>:service host add name=<span class="ID1">ID</span>1
+	                        <br> :service host rule add name=<span class="ID1">ID</span>1 protocol=any portrange=<span id='PORT1'>ID</span>
+	                        <br> :service host assign name=<span class="ID1">ID</span>1 host=<span class='IP1'>ID</span> log=disabled </p>
+	                </div>
+
+	                <div id="item2" style="display:none">
+	                    <p>:service host add name=<span class="ID1">ID</span>2
+	                        <br> :service host rule add name=<span class="ID1">ID</span>2 protocol=any portrange=<span id='PORT2'>ID</span>
+	                        <br> :service host assign name=<span class="ID1">ID</span>2 host=<span class='IP1'>ID</span> log=disabled </p>
+	                </div>
+
+	                <div id="item3" style="display:none">
+	                    <p>:service host add name=<span class="ID1">ID</span>3
+	                        <br> :service host rule add name=<span class="ID1">ID</span>3 protocol=any portrange=<span id='PORT3'>ID</span>
+	                        <br> :service host assign name=<span class="ID1">ID</span>3 host=<span class='IP1'>ID</span> log=disabled </p>
+	                </div>
+
+	                <div id="item4" style="display:none">
+	                    <p>:service host add name=<span class="ID1">ID</span>4
+	                        <br> :service host rule add name=<span class="ID1">ID</span>4 protocol=any portrange=<span id='PORT4'>ID</span>
+	                        <br> :service host assign name=<span class="ID1">ID</span>4 host=<span class='IP1'>ID</span> log=disabled </p>
+	                </div>
+
+	                <div id="item5" style="display:none">
+	                    <p>:service host add name=<span class="ID1">ID</span>5
+	                        <br> :service host rule add name=<span class="ID1">ID</span>5 protocol=any portrange=<span id='PORT5'>ID</span>
+	                        <br> :service host assign name=<span class="ID1">ID</span>5 host=<span class='IP1'>ID</span> log=disabled </p>
+	                </div>
+
+	                <div id="item6" style="display:none">
+	                    <p>:service host add name=<span class="ID1">ID</span>6
+	                        <br> :service host rule add name=<span class="ID1">ID</span>6 protocol=any portrange=<span id='PORT6'>ID</span>
+	                        <br> :service host assign name=<span class="ID1">ID</span>6 host=<span class='IP1'>ID</span> log=disabled </p>
+	                </div>
+
+	                <div id="item7" style="display:none">
+	                    <p>:service host add name=<span class="ID1">ID</span>7
+	                        <br> :service host rule add name=<span class="ID1">ID</span>7 protocol=any portrange=<span id='PORT7'>ID</span>
+	                        <br> :service host assign name=<span class="ID1">ID</span>7 host=<span class='IP1'>ID</span> log=disabled </p>
+	                </div>
+
+	                <div id="item8" style="display:none">
+	                    <p>:service host add name=<span class="ID1">ID</span>8
+	                        <br> :service host rule add name=<span class="ID1">ID</span>8 protocol=any portrange=<span id='PORT8'>ID</span>
+	                        <br> :service host assign name=<span class="ID1">ID</span>8 host=<span class='IP1'>ID</span> log=disabled </p>
+	                </div>
+
+	                <div id="item9" style="display:none">
+	                    <p>:service host add name=<span class="ID1">ID</span>9
+	                        <br> :service host rule add name=<span class="ID1">ID</span>9 protocol=any portrange=<span id='PORT9'>ID</span>
+	                        <br> :service host assign name=<span class="ID1">ID</span>9 host=<span class='IP1'>ID</span> log=disabled </p>
+	                </div>
+
+	                <div id="item10" style="display:none">
+	                    <p>:service host add name=<span class="ID1">ID</span>10
+	                        <br> :service host rule add name=<span class="ID1">ID</span>10 protocol=any portrange=<span id='PORT10'>ID</span>
+	                        <br> :service host assign name=<span class="ID1">ID</span>10 host=<span class='IP1'>ID</span> log=disabled </p>
+	                </div>
+
+	                <div id="item11" style="display:none">
+	                    <p>:service host add name=<span class="ID1">ID</span>11
+	                        <br> :service host rule add name=<span class="ID1">ID</span>11 protocol=any portrange=<span id='PORT11'>ID</span>
+	                        <br> :service host assign name=<span class="ID1">ID</span>11 host=<span class='IP1'>ID</span> log=disabled </p>
+	                </div>
+
+	                <div id="item12" style="display:none">
+	                    <p>:service host add name=<span class="ID1">ID</span>12
+	                        <br> :service host rule add name=<span class="ID1">ID</span>12 protocol=any portrange=<span id='PORT12'>ID</span>
+	                        <br> :service host assign name=<span class="ID1">ID</span>12 host=<span class='IP1'>ID</span> log=disabled </p>
+	                </div>
+
+	                <div id="item13" style="display:none">
+	                    <p>:service host add name=<span class="ID1">ID</span>13
+	                        <br> :service host rule add name=<span class="ID1">ID</span>13 protocol=any portrange=<span id='PORT13'>ID</span>
+	                        <br> :service host assign name=<span class="ID1">ID</span>13 host=<span class='IP1'>ID</span> log=disabled </p>
+	                </div>
+
+	                <div id="item14" style="display:none">
+	                    <p>:service host add name=<span class="ID1">ID</span>14
+	                        <br> :service host rule add name=<span class="ID1">ID</span>14 protocol=any portrange=<span id='PORT14'>ID</span>
+	                        <br> :service host assign name=<span class="ID1">ID</span>14 host=<span class='IP1'>ID</span> log=disabled </p>
+	                </div>
+
+	                <div id="item15" style="display:none">
+	                    <p>:service host add name=<span class="ID1">ID</span>15
+	                        <br> :service host rule add name=<span class="ID1">ID</span>15 protocol=any portrange=<span id='PORT15'>ID</span>
+	                        <br> :service host assign name=<span class="ID1">ID</span>15 host=<span class='IP1'>ID</span> log=disabled </p>
+	                </div>
+
+	                <div id="item16" style="display:none">
+	                    <p>:service host add name=<span class="ID1">ID</span>16
+	                        <br> :service host rule add name=<span class="ID1">ID</span>15 protocol=any portrange=<span id='PORT16'>ID</span>
+	                        <br> :service host assign name=<span class="ID1">ID</span>15 host=<span class='IP1'>ID</span> log=disabled </p>
+	                </div>
+
+	                <div id="item17" style="display:none">
+	                    <p>:service host add name=<span class="ID1">ID</span>17
+	                        <br> :service host rule add name=<span class="ID1">ID</span>15 protocol=any portrange=<span id='PORT17'>ID</span>
+	                        <br> :service host assign name=<span class="ID1">ID</span>15 host=<span class='IP1'>ID</span> log=disabled </p>
+	                </div>
+
+	                <div id="item18" style="display:none">
+	                    <p>:service host add name=<span class="ID1">ID</span>18
+	                        <br> :service host rule add name=<span class="ID1">ID</span>15 protocol=any portrange=<span id='PORT18'>ID</span>
+	                        <br> :service host assign name=<span class="ID1">ID</span>15 host=<span class='IP1'>ID</span> log=disabled </p>
+	                </div>
+
+	                <div id="item19" style="display:none">
+	                    <p>:service host add name=<span class="ID1">ID</span>19
+	                        <br> :service host rule add name=<span class="ID1">ID</span>15 protocol=any portrange=<span id='PORT19'>ID</span>
+	                        <br> :service host assign name=<span class="ID1">ID</span>15 host=<span class='IP1'>ID</span> log=disabled </p>
+	                </div>
+
+	                <div id="item20" style="display:none">
+	                    <p>:service host add name=<span class="ID1">ID</span>20
+	                        <br> :service host rule add name=<span class="ID1">ID</span>15 protocol=any portrange=<span id='PORT20'>ID</span>
+	                        <br> :service host assign name=<span class="ID1">ID</span>15 host=<span class='IP1'>ID</span> log=disabled </p>
+	                </div>
+
+	                <div id="item21" style="display:none">
+	                    <p>:service host add name=<span class="ID1">ID</span>21
+	                        <br> :service host rule add name=<span class="ID1">ID</span>15 protocol=any portrange=<span id='PORT21'>ID</span>
+	                        <br> :service host assign name=<span class="ID1">ID</span>15 host=<span class='IP1'>ID</span> log=disabled </p>
+	                </div>
+
+	                <div id="item22" style="display:none">
+	                    <p>:service host add name=<span class="ID1">ID</span>22
+	                        <br> :service host rule add name=<span class="ID1">ID</span>15 protocol=any portrange=<span id='PORT22'>ID</span>
+	                        <br> :service host assign name=<span class="ID1">ID</span>15 host=<span class='IP1'>ID</span> log=disabled </p>
+	                </div>
+
+	                <div id="item23" style="display:none">
+	                    <p>:service host add name=<span class="ID1">ID</span>23
+	                        <br> :service host rule add name=<span class="ID1">ID</span>15 protocol=any portrange=<span id='PORT23'>ID</span>
+	                        <br> :service host assign name=<span class="ID1">ID</span>15 host=<span class='IP1'>ID</span> log=disabled </p>
+	                </div>
+
+	                <div id="item24" style="display:none">
+	                    <p>:service host add name=<span class="ID1">ID</span>24
+	                        <br> :service host rule add name=<span class="ID1">ID</span>15 protocol=any portrange=<span id='PORT24'>ID</span>
+	                        <br> :service host assign name=<span class="ID1">ID</span>15 host=<span class='IP1'>ID</span> log=disabled </p>
+	                </div>
+
+	                <div id="item25" style="display:none">
+	                    <p>:service host add name=<span class="ID1">ID</span>25
+	                        <br> :service host rule add name=<span class="ID1">ID</span>15 protocol=any portrange=<span id='PORT25'>ID</span>
+	                        <br> :service host assign name=<span class="ID1">ID</span>15 host=<span class='IP1'>ID</span> log=disabled </p>
+	                </div>
+	            </blockquote>
+	        </div>
+		
+
+			<div id="husk" style="display:none">
+
+			</div>
+		</div>
+		
+	</div>
+
+	<div id="maccontent" style="display:none;">
+		<div id="mactext">
+		<p>Apple har med den nyeste opdatering, indført at alle drivere skal signeres af Apple, før de kan installeres på OS X.
+
+		Dette er grunden til at Mobile Partner ikke kan starte op på Mac mere.</p>
+
+		<p>For at omgå dette gør følgende</p>
+		<ol>
+		<li>Åbn Finder</li>
+		<li>Åbn Programmer</li>
+		<li>Åbn Hjælpeprogrammer</li>
+		</ol>
+		<img class="the pic" src="https://raw.githubusercontent.com/PTST/PTST.github.io/master/Images/huawei/01s.png" width="99%" >
+
+		<p>Åbn Terminal</p>
+
+		*Note: Alle programmer kan også findes ved at at trykke cmd+mellemrum hvorved der kommer et søgefelt frem hvor man kan skrive navnet på programmet ind og åbne det ved at trykke enter.*
+
+		<img class="the pic" src="https://raw.githubusercontent.com/PTST/PTST.github.io/master/Images/huawei/02s.png" width="99%" >
+												  
+
+		<p>I terminal indtastes</p>
+
+		<blockquote>
+		csrutil status
+		</blockquote>
+
+		<p>og tryk enter</p>
+
+
+		<img class="the pic" src="https://raw.githubusercontent.com/PTST/PTST.github.io/master/Images/huawei/03s.png" width="99%" >
+
+		<p>Hvis Terminal melder "System Integrity Protection status: enabled" så vil Huawei donglen ikke fungere før vi har ændret status til disabled.</p>
+
+		<img class="the pic" src="https://raw.githubusercontent.com/PTST/PTST.github.io/master/Images/huawei/04s.png" width="99%" >
+
+		<p>For at slå "System Integrity Status" fra skal vi have startet Mac'en op i gendannelses tilstand, dette gøre ved at</p>
+
+		<ol>
+		<li>Tryk på æble ikonet oppe i venstre hjørne af menubaren</li>
+		<li>Tryk på “Start igen”</li>
+		</ol>
+
+		<img class="the pic" src="https://raw.githubusercontent.com/PTST/PTST.github.io/master/Images/huawei/05s.png" width="99%" >
+
+		<p>Derefter trykkes der på "Start igen" knappen på i pop-up vinduet der kommer frem</p>
+
+		<img class="the pic" src="https://raw.githubusercontent.com/PTST/PTST.github.io/master/Images/huawei/06s.png" width="99%" >
+
+		<p>Mens computeren genstarter er det vigtigt at kunden holder knapperne cmd+r nede indtil følgende billede vises på skærmen</p>
+
+		<img class="the pic" src="https://raw.githubusercontent.com/PTST/PTST.github.io/master/Images/huawei/07s.png" width="99%" >
+
+		<p>Herefter trykkes der på</p>
+
+		<ol>
+		<li>Hjælpeprogrammer i menubaren i toppen af skærmen</li>
+		<li>Terminal</li>
+		</ol>
+
+		<img class="the pic" src="https://raw.githubusercontent.com/PTST/PTST.github.io/master/Images/huawei/08s.png" width="99%" >
+
+		<p>I det Terminal vindue der åbnes indtastes</p>
+		<blockquote>
+		csrutil disable; reboot
+		</blockquote>
+		<p>herefter trykkes der enter og computeren vil kortvarigt herefter genstarte.</p>
+
+		<img class="the pic" src="https://raw.githubusercontent.com/PTST/PTST.github.io/master/Images/huawei/09s.png" width="99%" >
+
+		<p>Når computeren er startet op igen skal du ind i en browser og indtaste denne adresse:</p>
+
+		<blockquote>
+		http://bit.ly/telenormac
+		</blockquote>
+
+		<p>Virker kortlinket ikke, er den fulde adresse</p>
+
+		<blockquote>
+		https://miapple.me/download/huawei/MobileConnectDriver.zip
+		</blockquote>
+
+		<p>Herefter skal vi have udpakket den ZIP fil der er blevet hentet, dette gøre ved at</p>
+
+		<ol>
+		<li>Åbne Finder</li>
+		<li>Trykke på Overførsler</li>
+		<li>Dobbeltklikke på filen "MobileConnectDriver.zip"</li>
+		</ol>
+
+		<img class="the pic" src="https://raw.githubusercontent.com/PTST/PTST.github.io/master/Images/huawei/10s.png" width="99%" >
+
+		<p>Når filen er udpakket dobbeltklikkes der herefter på "MobileConnectDriver(4.25.45.00).pkg"</p>
+
+		<img class="the pic" src="https://raw.githubusercontent.com/PTST/PTST.github.io/master/Images/huawei/11s.png" width="99%" >
+
+		<p>Driveren installeres ved at trykke Fortsæt</p>
+
+		<img class="the pic" src="https://raw.githubusercontent.com/PTST/PTST.github.io/master/Images/huawei/12s.png" width="99%" >
+
+		<p>Fortsæt igen</p>
+
+		<img class="the pic" src="https://raw.githubusercontent.com/PTST/PTST.github.io/master/Images/huawei/13s.png" width="99%" >
+
+		<p>Tryk agree på den pop-up der kommer frem</p>
+
+		<img class="the pic" src="https://raw.githubusercontent.com/PTST/PTST.github.io/master/Images/huawei/14s.png" width="99%" >
+
+		<p>Tryk Installer</p>
+
+		<img class="the pic" src="https://raw.githubusercontent.com/PTST/PTST.github.io/master/Images/huawei/15s.png" width="99%" >
+
+		<p>Herefter skal du</p>
+
+		<ol>
+		<li>indtaste din adgangskode til computeren</li>
+		<li>Trykke på "Installer software"</li>
+		</ol>
+
+		<img class="the pic" src="https://raw.githubusercontent.com/PTST/PTST.github.io/master/Images/huawei/16s.png" width="99%" >
+
+		<p>Lad driveren installere</p>
+
+		<img class="the pic" src="https://raw.githubusercontent.com/PTST/PTST.github.io/master/Images/huawei/17s.png" width="99%" >
+
+		<p>Når driveren er færdig med at installere</p>
+
+		<ol>
+		<li>Tryk på Systemindstillinger</li>
+		<li>Tryk på Netværk</li>
+		</ol>
+
+		<p>Ligger Systemindstillinger ikke i docken, så kan den findes i Programmer mappen i finder.</p>
+
+		<img class="the pic" src="https://raw.githubusercontent.com/PTST/PTST.github.io/master/Images/huawei/18s.png" width="99%" >
+
+		<p>Tryk på plus tegnet</p>
+
+		<img class="the pic" src="https://raw.githubusercontent.com/PTST/PTST.github.io/master/Images/huawei/19s.png" width="99%" >
+
+		<p>Tryk på drop-down menuen ved Grænseflade</p>
+
+		<img class="the pic" src="https://raw.githubusercontent.com/PTST/PTST.github.io/master/Images/huawei/20s.png" width="99%" >
+
+		<p>Vælg HUAWEIMobile-Modem</p>
+
+		<img class="the pic" src="https://raw.githubusercontent.com/PTST/PTST.github.io/master/Images/huawei/21s.png" width="99%" >
+
+		<p>Tryk på Opret</p>
+
+		<img class="the pic" src="https://raw.githubusercontent.com/PTST/PTST.github.io/master/Images/huawei/22s.png" width="99%" >
+
+		<p>Så skal vi indtaste APN indstillingerne</p>
+
+		<img class="the pic" src="https://raw.githubusercontent.com/PTST/PTST.github.io/master/Images/huawei/23s.png" width="99%" >
+
+		<p>Dette gøres ved at</p>
+
+		<ol>
+		<li>Ved Telefon nummer taster *99#</li>
+		<li>Ved kontonavn skrives der telenor</li>
+		<li>Derefter sættes der hak i "Vis modemstatus på menulinje"</li>
+		<li>Der trykkes Tilslut</li>
+		</ol>
+
+		<img class="the pic" src="https://raw.githubusercontent.com/PTST/PTST.github.io/master/Images/huawei/24-2s.png" width="99%" >
+
+		<p>Tryk på Anvend</p>
+
+		<img class="the pic" src="https://raw.githubusercontent.com/PTST/PTST.github.io/master/Images/huawei/25s.png" width="99%" >
+
+		<p>Tryk på ok</p>
+
+		<img class="the pic" src="https://raw.githubusercontent.com/PTST/PTST.github.io/master/Images/huawei/26s.png" width="99%" >
+
+		<p>Tjek at status skifter til Tilsluttet</p>
+
+		<img class="the pic" src="https://raw.githubusercontent.com/PTST/PTST.github.io/master/Images/huawei/27s.png" width="99%" >
+
+		<p>Til sidst er her en guide til hvordan du opretter og afbryder forbindelsen til det mobile bredbånd</p>
+
+		<p>Forbindelsen afbrydes ved at</p>
+
+		<ol>
+		<li>Trykke på telefon ikonet i menubaren</li>
+		<li>Tryk på Afbryd forbindelse</li>
+		</ol>
+
+		<img class="the pic" src="https://raw.githubusercontent.com/PTST/PTST.github.io/master/Images/huawei/28s.png" width="99%" >
+
+		<p>Der forbindes til det mobile bredbånd ved at</p>
+
+		<ol>
+		<li>Trykke på telefon ikonet</li>
+		<li>Trykke på Opret forbindelse</li>
+		</ol>
+
+		<img class="the pic" src="https://raw.githubusercontent.com/PTST/PTST.github.io/master/Images/huawei/29s.png" width="99%" >
+
+		<p>Hver gang du opretter forbindelse ville denne pop op komme frem, og spørge efter en adgangskode, du skal bare trykke ok.</p>
+
+		<img class="the pic" src="https://raw.githubusercontent.com/PTST/PTST.github.io/master/Images/huawei/30s.png" width="99%" >
+
+		<p>Så er du online.</p>
+
+		<img class="the pic" src="https://raw.githubusercontent.com/PTST/PTST.github.io/master/Images/huawei/31s.png" width="99%" >
+		</div>
+	</div>
+
+	<div id="bottom" style="position:relative">
+		<div id="bottom-left"><p1 class="whitep">The path of the righteous man is beset on all sides by the iniquities of the selfish and the tyranny of evil men. Blessed is he who, in the name of charity and good will, shepherds the weak through the valley of darkness, for he is truly his brother's keeper and the finder of lost children. And I will strike down upon thee with great vengeance and furious anger those who would attempt to poison and destroy My brothers. And you will know My name is the Lord when I lay My vengeance upon thee.
+
+Your bones don't break, mine do. That's clear. Your cells react to bacteria and viruses differently than mine. You don't get sick, I do.</p1></div>
+		
+		<div id="bottom-center"><img src="Content/Images/logo.svg"></div>
+
+		<div id="bottom-right"><p1 id="whitep">The path of the righteous man is beset on all sides by the iniquities of the selfish and the tyranny of evil men. Blessed is he who, in the name of charity and good will, shepherds the weak through the valley of darkness, for he is truly his brother's keeper and the finder of lost children. And I will strike down upon thee with great vengeance and furious anger those who would attempt to poison and destroy My brothers. And you will know My name is the Lord when I lay My vengeance upon thee.
+
+Your bones don't break, mine do. That's clear. Your cells react to bacteria and viruses differently than mine. You don't get sick, I do.</p1></div>
 	</div>
 	</body>
 	<script type="text/javascript"></script>

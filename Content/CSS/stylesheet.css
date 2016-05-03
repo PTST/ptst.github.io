@@ -1,0 +1,206 @@
+			#logotype a:link,
+			#logotype a:visited,
+			#logotype a:hover, 
+			#io a:link,
+			#io a:visited,
+			#io a:hover {
+  				color: #ffffff;
+  				text-decoration: none;
+			}
+
+			#top {
+				background-color: #5ebefb;
+				height: 80px;
+				width: 1100px;
+			}
+
+			#menubar {
+				background-color: #FFFFFF;
+				height: 250px;
+				width: 1100px;
+				box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.5);
+				position: relative;
+			}
+
+			#telnetcontent {
+				background-color: #FFFFFF;
+				width: 1100px;
+				box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.5);
+				position: relative;
+			}
+
+			#maccontent {
+				background-color: #FFFFFF;
+				width: 1100px;
+				box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.5);
+				position: relative;
+			}
+
+			#bottom {
+				background-color: #5ebefb;
+				height: 370px;
+				width: 1100px;
+				position: relative;
+			}
+
+			#logotype {
+				position: absolute;
+    			top: 19px;
+    			left: 18px;
+
+    			
+			}
+
+			#io {
+				position: absolute;
+				left: 352px;
+				top: 46px;
+
+
+			}
+
+			h1 {
+				margin: 0px 0px 0px 0px;
+				font-size: 53px;
+				font-family: HelveticaNeue;
+				color: #ffffff;
+			}
+
+			h2 {
+				margin: 0px 0px 0px 0px;
+				font-family: HelveticaNeue;
+				font-size: 24px;
+				color: #ffffff;
+			}
+
+			.line {
+				width: 1px;
+				height: 240px;
+				border: solid 1px #e6e6e6;
+				background-color: #e6e6e6;
+			}
+
+			body {
+				margin-top: 10px;
+				margin-right: 10px;
+				margin-bottom: 10px;
+				margin-left: 10px;
+				background-color: #ffffff;
+	    	}
+
+	    	#menu1 {
+	    		height: 250px;
+	    		width: 274px;
+	    		position: absolute;
+	    		top: 0px;
+	    		left: 0px;
+	    	}
+
+	    	#menu2 {
+	    		height: 250px;
+	    		width: 273px;
+	    		position: absolute;
+	    		top: 0px;
+	    		left: 274px;
+	    	}
+
+	    	#menu3 {
+	    		height: 250px;
+	    		width: 274px;
+	    		position: absolute;
+	    		top: 0px;
+	    		left: 547px;
+	    	}
+
+	    	#menu4 {
+	    		height: 250px;
+	    		width: 274px;
+	    		position: absolute;
+	    		top: 0px;
+	    		left: 820px;
+	    	}
+
+	    	#bottom-left {
+	    		height: 330px;
+	    		width: 394px;
+	    		position: absolute;
+	    		bottom: 20px;
+	    		left: 16px;
+	    		text-align: justify;
+	    		display: block;
+	    	}
+
+	    	#bottom-center {
+	    		height: 250px;
+	    		width: 250px;
+	    		position: absolute; 
+	    		bottom: 60px; 
+	    		left: 425px;
+	    		display: inline-block;
+	    	}
+
+	    	#bottom-right {
+	    		height: 330px;
+	    		width: 394px;
+	    		position: absolute;
+	    		bottom: 20px;
+	    		margin-left: 690px;
+	    		text-align: justify;
+	    		display: inline-block;
+
+	    	}
+
+	    	h3 {
+	    		width: 265px;
+				height: 28px;
+				font-family: HelveticaNeue;
+				font-size: 24px;
+				color: #000000;
+				text-align: right;
+	    	}
+
+	    	p {
+	    		font-family: HelveticaNeue;
+	    		font-size: 18px;
+	    		margin: 1px 1px 1px 1px;
+	    		word-wrap: break-word;
+	    	}
+
+	    	p #whitep {
+				color: #ffffff
+			}
+
+			.telnetinput {
+				position: relative;
+				margin-top: 10px;
+				margin-bottom: 10px
+				width: 150px;
+				margin-left: 10px;
+				display: inline-block;
+				vertical-align:top;
+				
+			}
+			.telnetoutput {
+				margin-left: 175px;
+				margin-top: 10px;
+				position: relative;
+				display: inline-block;
+				vertical-align:top;
+			}
+
+			#mactext {
+				position: relative;
+				top: 10px;
+				left: 10px;
+				margin-right: 10px;
+			}
+
+			blockquote {
+		        font: 06px;
+		        margin-top: 10px;
+		        margin-bottom: 10px;
+		        margin-left: 50px;
+		        padding-left: 15px;
+		        border-left: 3px solid #ccc;
+			}
+
