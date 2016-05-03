@@ -28,6 +28,7 @@
 	    <meta name="description" content="Steffensen.io">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" type="text/css" href="Content/CSS/stylesheet.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
 		<style type="text/css">
 			@font-face {
     			font-family: "HelveticaNeue";
@@ -66,22 +67,23 @@
 
 	</head>
 	<body>
+	<a href="#top" style="position: fixed; bottom: 10px; right: 10px; z-index: 10;"><i id="uptop" class="fa fa-arrow-up" aria-hidden="true"></i>TIL TOPPEN</a>
 
 	<div id="top">
 		<h1 id="logotype"><a href="index.html">STEFFENSEN</a></h1><h2 id="io"><a href="index.html">.io</a></h2>
 	</div>
 	<div id="menubar">
-		<a id="menu1" onclick="telnetexpand()">
+		<a id="menu1" onclick="telnetexpand()" style="cursor:pointer;">
 			<img src="Content/Images/telnet.svg" style="position: absolute; margin-left: 44px; margin-top: 43px">
 			<h3 style="position: absolute; top: 192px; left: 5px">Portforward generator</h3>
 		</a>
 		<div id="line1" class="line" style="position: absolute; top: 5px; left: 274px"></div>
-		<a id="menu2" onclick="macexpand()">
+		<a id="menu2" onclick="macexpand()" style="cursor:pointer;">
 			<img src="Content/Images/mac.svg" style="position: absolute; margin-left: 16px; margin-top: 44px">
 			<h3 style="position: absolute; top: 192px; left: 5px">MBB på Mac</h3>
 		</a>
 		<div id="line2" class="line" style="position: absolute; top: 5px; left: 549px"></div>
-		<a id="menu3" href="http://steffensen.io/fejlretning.html">
+		<a id="menu3" href="http://steffensen.io/fejlretning.html" style="cursor:pointer;">
 			<img src="Content/Images/dsl.svg" style="position: absolute; margin-left: 54px; margin-top: 43px">
 			<h3 style="position: absolute; top: 192px; left: 5px">DSL Fejlretning</h3>
 		</a>
