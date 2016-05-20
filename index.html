@@ -27,6 +27,7 @@
     <title>Steffensen.io</title>
     <link rel="stylesheet" href="css/foundation.css" />
     <link rel="stylesheet" href="css/style.css" />
+	
 
   </head>
   <body>
@@ -36,7 +37,7 @@
     </div>
     <div id="mainmenu" class="row small-up-2 medium-up-4 large-up-4">
 	  <div class="column">
-	    <img data-open="telnetmodal" src="Images/Telnet.svg" class="thumbnail" alt="" style="margin-top: 10%; cursor: pointer;">
+	    <img data-open='telnetmodal' src="Images/Telnet.svg" class="thumbnail" alt="" style="margin-top: 10%; cursor: pointer;">
 	  </div>
 	  <div class="column">
 	    <img data-open="macmodal" src="Images/Mac.svg" class="thumbnail" alt="" style="margin-top: 10%; cursor: pointer;">
@@ -610,4 +611,11 @@
     <script>
       $(document).foundation();
     </script>
+	<script type="text/javascript">
+		document.addEventListener("DOMContentLoaded", function(event) {
+			var id = window.location.hash.substring(1); // remove the #
+			var element = document.querySelector('[data-open="' + id + '"]');
+			element.click();
+		});
+	</script>
 </html>
