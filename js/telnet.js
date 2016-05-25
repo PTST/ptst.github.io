@@ -42,9 +42,11 @@
 	                newElem.children(':first').attr('id', 'name' + newNum).attr('name', 'name' + newNum).attr('placeholder', 'port ' + newNum).val("");
 	                $('#input' + num).after(newElem);
 	                $('#btnDel').attr('disabled',false);
+	                $('#btnDel').attr('class','button');
 	 
 	                if (newNum == 25)
 	                    $('#btnAdd').attr('disabled','disabled');
+	                    $('#btnDel').attr('class','disabled');
 	            });
 	 
 	            $('#btnDel').click(function() {
@@ -52,12 +54,15 @@
 	 
 	                $('#input' + num).remove();
 	                $('#btnAdd').attr('disabled',false);
+	                $('#btnDel').attr('class','button');
 	 
 	                if (num-1 == 1)
 	                    $('#btnDel').attr('disabled','disabled');
+	                    $('#btnDel').attr('class','disabled');
 	            });
 	 
 	            $('#btnDel').attr('disabled','disabled');
+	            $('#btnDel').attr('class','disabled');
 	        });
 			
 			function choose() {
