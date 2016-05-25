@@ -37,7 +37,7 @@
     </div>
     <div id="mainmenu" class="row small-up-2 medium-up-4 large-up-4">
 	  <div class="column">
-	    <img data-open='telnetmodal' src="Images/Telnet.svg" class="thumbnail" alt="" style="margin-top: 10%; cursor: pointer;">
+	    <img data-open='pfwmodal' src="Images/Telnet.svg" class="thumbnail" alt="" style="margin-top: 10%; cursor: pointer;">
 	  </div>
 	  <div class="column">
 	    <img data-open="macmodal" src="Images/Mac.svg" class="thumbnail" alt="" style="margin-top: 10%; cursor: pointer;">
@@ -46,7 +46,7 @@
 	    <img data-open="fejlmodal" src="Images/DSL.svg" class="thumbnail" alt="" style="margin-top: 10%; cursor: pointer;">
 	  </div>
 	  <div class="column">
-	    <img src="Images/Snart.svg" class="thumbnail" alt="" style="margin-top: 10%;">
+	    <img data-open="telnetmodal" src="Images/Snart.svg" class="thumbnail" alt="" style="margin-top: 10%;">
 	  </div>
 	 </div>
 
@@ -63,7 +63,7 @@
 	  </div>
 	</div>
 
-	<div class="large reveal" id="telnetmodal" data-reveal data-animation-in="slide-in-down" data-animation-out="slide-out-up">
+	<div class="large reveal" id="pfwmodal" data-reveal data-animation-in="slide-in-down" data-animation-out="slide-out-up">
   		<h1>Portforwarding generator</h1>
   		<div class="row" id="pfwdgenerator">
   			<div class="small-12 medium-4 columns">
@@ -594,16 +594,54 @@
 						
 						</blockquote>
 				</div>
-				</div>
+			</div>
 
 		<button class="close-button" data-close aria-label="Close modal" type="button">
 		<span aria-hidden="true">&times;</span>
 		</button>
 
 	</div>
+	
+	<div class="large reveal" id="telnetmodal" data-reveal data-animation-in="slide-in-down" data-animation-out="slide-out-up">
+		<h1>DSL Fejlretning</h1>
+		<div class="row" id="fejlrow">
+			<div class="small-12 medium-4 columns">
+				<a href="#" onclick="acs()">Tjek støj på WIFI-kanaler (ACS)</a>
+				<a href="#" onclick="giptjek()>Global IP tjek</a>
+				<a href="#" onclick="gipfjern()>Fjern Global IP</a>
+			</div>
+			<div class="small-12 medium-8 columns">
+				<div id="acstekst">
+					wireless acs rescan<br>wireless acs scanreport
+				</div>
+				<p id="giptjektekst">
+					dhcp server pool list
+				</div>
+				<div id="gipfjerntekst">
+					<button aria-label="Colocation (PPPOA)" type="button">Colocation (PPPOA)</button>
+					<button aria-label="TDC Central (PPPOE)" type="button">Colocation (PPPOA)</button>
+					<div id="gipfjernkommando">
+						:nat ifconfig intf=internet_pppoa translation=enabled<br>
+						:nat ifconfig intf=internet_pppoe translation=enabled<br>
+						:nat ifconfig intf=LocalNetwork translation=transparent<br>
+						:dhcp server pool config name=LAN_private state=enabled<br>
+						:dhcp server pool config name=officialIP1 state=disabled<br>
+						:firewall config state enabled<br>
+						:nat tmpladd intf=internet_<span id="pppo">123</span> outside_addr=0.0.0.1 inside_addr=127.0.0.1 protocol=tcp outside_port=2033-2033 inside_port=2033-2033 mode=inbound weight=10<br>
+						:saveall
+					</div>
 
+				</div>
+			</div>
+		</div>
+		<button class="close-button" data-close aria-label="Close modal" type="button">
+		<span aria-hidden="true">&times;</span>
+		</button>
+	</div>
+
+
+    	
     
-
   </body>
   <script src="js/vendor/jquery.js"></script>
     <script src="js/vendor/what-input.js"></script>
@@ -619,5 +657,23 @@
 			var element = document.querySelector('[data-open="' + id + '"]');
 			element.click();
 		});
+		
+		function acs() {
+    			document.getElementById("acstekst").style.display = "block";
+    			document.getElementById("giptjektekst").style.display = "none";
+    			document.getElementById("gipfjerntekst").style.display = "none";
+		}
+		
+		function giptjek() {
+			document.getElementById("acstekst").style.display = "none";
+    			document.getElementById("giptjektekst").style.display = "block";
+    			document.getElementById("gipfjerntekst").style.display = "none";
+		}
+		
+		function gipfjern() {
+			document.getElementById("acstekst").style.display = "none";
+    			document.getElementById("giptjektekst").style.display = "none";
+    			document.getElementById("gipfjerntekst").style.display = "block";
+		}
 	</script>
 </html>
