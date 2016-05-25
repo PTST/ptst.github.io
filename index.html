@@ -614,15 +614,20 @@
 			</div>
 			<div class="small-12 medium-8 columns">
 				<div id="acstekst" style="display:none">
+					<blockquote>
 					wireless acs rescan<br>wireless acs scanreport
+					</blockquote>
 				</div>
 				<p id="giptjektekst" style="display:none"</p>
+					<blockquote>
 					dhcp server pool list
+					</blockquote>
 				</div>
 				<div id="gipfjerntekst" style="display:none">
 					<button aria-label="Colocation (PPPOA)" type="button">Colocation (PPPOA)</button>
 					<button aria-label="TDC Central (PPPOE)" type="button">Colocation (PPPOA)</button>
 					<div id="gipfjernkommando">
+						<blockquote>
 						:nat ifconfig intf=internet_pppoa translation=enabled<br>
 						:nat ifconfig intf=internet_pppoe translation=enabled<br>
 						:nat ifconfig intf=LocalNetwork translation=transparent<br>
@@ -631,6 +636,7 @@
 						:firewall config state enabled<br>
 						:nat tmpladd intf=internet_<span id="pppo">123</span> outside_addr=0.0.0.1 inside_addr=127.0.0.1 protocol=tcp outside_port=2033-2033 inside_port=2033-2033 mode=inbound weight=10<br>
 						:saveall
+						
 					</div>
 
 				</div>
