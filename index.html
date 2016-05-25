@@ -626,7 +626,7 @@
 				<div id="gipfjerntekst" style="display:none">
 					<button aria-label="Colocation (PPPOA)" type="button" onclick="coloc()">Colocation (PPPOA)</button>
 					<button aria-label="TDC Central (PPPOE)" type="button" onclick="TDCcentral()">Colocation (PPPOA)</button>
-					<div id="gipfjernkommando">
+					<div id="gipfjernkommando" style="display:none">
 						<blockquote>
 							:nat ifconfig intf=internet_pppoa translation=enabled<br>
 							:nat ifconfig intf=internet_pppoe translation=enabled<br>
@@ -636,7 +636,7 @@
 							:firewall config state enabled<br>
 							:nat tmpladd intf=internet_<span id="pppo">123</span> outside_addr=0.0.0.1 inside_addr=127.0.0.1 protocol=tcp outside_port=2033-2033 inside_port=2033-2033 mode=inbound weight=10<br>
 							:saveall
-						
+						</blockquote>
 					</div>
 
 				</div>
@@ -687,11 +687,13 @@
 		function coloc() {
 			var PPPOA = "pppoa"
 			$("#pppo").text(PPPOA);
+			document.getElementById("gipfjernkommando").style.display = "block";
 		}
 		
 		function TDCcentral() {
 			var PPPOE = "pppoe"
 			$("#pppo").text(PPPOE);
+			document.getElementById("gipfjernkommando").style.display = "block";
 		}
 	</script>
 </html>
