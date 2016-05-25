@@ -604,20 +604,20 @@
 	
 	<div class="large reveal" id="telnetmodal" data-reveal data-animation-in="slide-in-down" data-animation-out="slide-out-up">
 		<h1>DSL Fejlretning</h1>
-		<div class="row" id="fejlrow">
+		<div class="row" id="commandsrow">
 			<div class="small-12 medium-4 columns">
 				<a href="#" onclick="acs()">Tjek støj på WIFI-kanaler (ACS)</a>
 				<a href="#" onclick="giptjek()">Global IP tjek</a>
 				<a href="#" onclick="gipfjern()">Fjern Global IP</a>
 			</div>
 			<div class="small-12 medium-8 columns">
-				<div id="acstekst" style="none">
+				<div id="acstekst" style:none>
 					wireless acs rescan<br>wireless acs scanreport
 				</div>
-				<p id="giptjektekst" style="none">
+				<p id="giptjektekst" display:none></p>
 					dhcp server pool list
 				</div>
-				<div id="gipfjerntekst" style="none">
+				<div id="gipfjerntekst" display:none>
 					<button aria-label="Colocation (PPPOA)" type="button">Colocation (PPPOA)</button>
 					<button aria-label="TDC Central (PPPOE)" type="button">Colocation (PPPOA)</button>
 					<div id="gipfjernkommando">
