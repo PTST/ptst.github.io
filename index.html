@@ -624,8 +624,8 @@
 					</blockquote>
 				</div>
 				<div id="gipfjerntekst" style="display:none">
-					<button class="button" type="button" onclick="coloc()">Colocation (PPPOA)</button>
-					<button class="button" type="button" onclick="TDCcentral()">Colocation (PPPOA)</button>
+					<button id="colocbttn" class="button" type="button" onclick="coloc()">Colocation (PPPOA)</button>
+					<button id="tdcbttn" class="button" type="button" onclick="TDCcentral()">Colocation (PPPOA)</button>
 					<div id="gipfjernkommando" style="display:none">
 						<blockquote>
 							:nat ifconfig intf=internet_pppoa translation=enabled<br>
@@ -688,12 +688,16 @@
 			var PPPOA = "pppoa"
 			$("#pppo").text(PPPOA);
 			document.getElementById("gipfjernkommando").style.display = "block";
+			$("#tdcbttn").attr('class', 'button alert');
+			$("#colocbttn").attr('class', 'button success');
 		}
 		
 		function TDCcentral() {
 			var PPPOE = "pppoe"
 			$("#pppo").text(PPPOE);
 			document.getElementById("gipfjernkommando").style.display = "block";
+			$("#tdcbttn").attr('class', 'button success');
+			$("#colocbttn").attr('class', 'button alert');
 		}
 	</script>
 </html>
