@@ -1,3 +1,37 @@
+	    	function acs() {
+    			document.getElementById("acstekst").style.display = "block";
+    			document.getElementById("giptjektekst").style.display = "none";
+    			document.getElementById("gipfjerntekst").style.display = "none";
+		}
+		
+		function giptjek() {
+			document.getElementById("acstekst").style.display = "none";
+    			document.getElementById("giptjektekst").style.display = "block";
+    			document.getElementById("gipfjerntekst").style.display = "none";
+		}
+		
+		function gipfjern() {
+			document.getElementById("acstekst").style.display = "none";
+    			document.getElementById("giptjektekst").style.display = "none";
+    			document.getElementById("gipfjerntekst").style.display = "block";
+		}
+		
+		function coloc() {
+			var PPPOA = "pppoa"
+			$("#pppo").text(PPPOA);
+			document.getElementById("gipfjernkommando").style.display = "block";
+			$("#tdcbttn").attr('class', 'button alert');
+			$("#colocbttn").attr('class', 'button success');
+		}
+		
+		function TDCcentral() {
+			var PPPOE = "pppoe"
+			$("#pppo").text(PPPOE);
+			document.getElementById("gipfjernkommando").style.display = "block";
+			$("#tdcbttn").attr('class', 'button success');
+			$("#colocbttn").attr('class', 'button alert');
+		}
+	    	
 	    	$(document).ready(function() {
 	            $('#btnAdd').click(function() {
 	                var num     = $('.clonedInput').length;
