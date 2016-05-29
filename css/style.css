@@ -47,3 +47,9 @@
 	color: #ffffff;
 	text-decoration: none;
 }
+
+#telnettooldl a:link,
+#telnettooldl a:visited,
+#telnettooldl a:hover {
+	color: #ffffff;
+}
