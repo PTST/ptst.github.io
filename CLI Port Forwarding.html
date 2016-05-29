@@ -1,0 +1,252 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>CLI Port forwarding</title>
+<link rel="shortcut icon" type="image/png" href="http://www.iconj.com/ico/o/q/oqw8vixyy7.ico"/>
+<script language="javascript" type="text/javascript">
+function showHide(shID) {
+   if (document.getElementById(shID)) {
+      if (document.getElementById(shID+'-show').style.display != 'none') {
+         document.getElementById(shID+'-show').style.display = 'none';
+         document.getElementById(shID).style.display = 'block';
+      }
+      else {
+         document.getElementById(shID+'-show').style.display = 'inline';
+         document.getElementById(shID).style.display = 'none';
+      }
+   }
+}
+</script>
+<style type="text/css">
+   /* This CSS is just for presentational purposes. */
+   body {
+      font-size: 62.5%;
+      background-color: #000; }
+   #wrap {
+      font: 1.3em/1.3 Lucida Console, Arial, Helvetica, sans-serif;
+      width: 45em;
+      margin: 0 auto;
+      padding: 1em;
+      background-color: #000; }
+   h1 {
+      font-size: 200%; }
+
+   /* This CSS is used for the Show/Hide functionality. */
+   .more {
+      display: none;
+      border-top: 1px solid #666;
+      border-bottom: 1px solid #666; }
+   a.showLink, a.hideLink {
+      text-decoration: none;
+      color: #36f;
+      padding-left: 8px;
+      background: transparent url(down.gif) no-repeat left; }
+   a.hideLink {
+      background: transparent url(up.gif) no-repeat left; }
+   a.showLink:hover, a.hideLink:hover {
+      border-bottom: 1px dotted #36f; }
+</style>
+</head>
+<body>
+   <div id="wrap"><font color="white">
+      <h1>CLI Port Forwarding v.1.2</h1> 
+	<b><h1>VIGTIGT! RESET ROUTEREN INDEN I BEGYNDER PÅ PORTFORWARDING, FOR AT UNDGÅ KONFLIKTER!</h1></b><br>
+<br>	  
+	  Her er en CLI kommado til og åbne alle porte til forskellige enheder som er nødvendige. <br>
+<br>
+<b>Husk at rette ip til, så ex. host=10.0.0.X skal X erstattes af slutningen af kundens ip, på den enhed kunden skal havde åbnet porte for. Så den eksempelvis ser sådan her ud host=10.0.0.23.</b> <br>
+<br>
+Hvis firewall skal slukkes, kan nedestående kommando bruges.<br>
+:firewall config state=disabled<br>
+<br>
+Hvis "UPNP Extended Security" skal slåes fra, hvilket det skal i stort set alle tilfælde, kan nedesåtende kommando bruges.<br>
+:upnp config safenat=disabled<br>
+<br>
+Få liste frem med de enheder der lige nu er koblet på wifi, med macadresse:<br> 
+:wireless stations list ssid_id=0 radio_id=0<br>
+<br>
+Rescan wifi kanaler og gennemtving kanalskift:<br>
+:wireless acs rescan radio_id=0 act=yes<br>
+<br>
+Scan report, se støj/antal enheder på de forskellige kanaler fra sidste scanning:<br>
+:wireless acs scanreport radio_id=0<br>
+<br>
+Her kan du slå Mac adressen op for at se hvad den tilhører.<br>
+<a href="http://www.coffer.com/mac_find/">KLIK HER</a><br>
+
+</font></div>
+   <div id="wrap"><font color="white">
+      <h1>AppleTV</h1> 
+:service host add name=A1 <br>
+:service host rule add name=A1 protocol=any portrange=80 <br>
+:service host assign name=A1 host=10.0.0.X log=disabled <br>
+:service host add name=A2 <br>
+:service host rule add name=A2 protocol=any portrange=443 <br>
+:service host assign name=A2 host=10.0.0.X log=disabled <br>
+:service host add name=A3 <br>
+:service host rule add name=A3 protocol=any portrange=53 <br>
+:service host assign name=A3 host=10.0.0.X log=disabled <br>
+:service host add name=A4 <br>
+:service host rule add name=A4 protocol=any portrange=5353 <br>
+:service host assign name=A4 host=10.0.0.X log=disabled <br>
+:service host add name=A5 <br>
+:service host rule add name=A5 protocol=any portrange=123 <br>
+:service host assign name=A5 host=10.0.0.X log=disabled <br>
+:service host add name=A6 <br>
+:service host rule add name=A6 protocol=any portrange=3689 <br>
+:service host assign name=A6 host=10.0.0.X log=disabled <br>
+   </font></div>
+ 
+     <div id="wrap"><font color="white">
+      <h1>Sonos</h1> 
+:service host add name=S1 <br>
+:service host rule add name=S1 protocol=any portrange=80 <br>
+:service host assign name=S1 host=10.0.0.X log=disabled <br>
+:service host add name=S2 <br>
+:service host rule add name=S2 protocol=any portrange=445 <br>
+:service host assign name=S2 host=10.0.0.X log=disabled <br>
+:service host add name=S3 <br>
+:service host rule add name=S3 protocol=any portrange=3400 <br>
+:service host assign name=Ps3 host=10.0.0.X log=disabled <br>
+:service host add name=S4 <br>
+:service host rule add name=S4 protocol=any portrange=443 <br>
+:service host assign name=S4 host=10.0.0.X log=disabled <br>
+:service host add name=S5 <br>
+:service host rule add name=S5 protocol=any portrange=4070 <br>
+:service host assign name=S5 host=10.0.0.X log=disabled <br>
+:service host add name=S6 <br>
+:service host rule add name=S6 protocol=any portrange=136-139 <br>
+:service host assign name=S66 host=10.0.0.X log=disabled <br>
+:service host add name=S7 <br>
+:service host rule add name=S7 protocol=any portrange=1900 <br>
+:service host assign name=S7 host=10.0.0.X log=disabled <br>
+:service host add name=S8 <br>
+:service host rule add name=S8 protocol=any portrange=1900 <br>
+:service host assign name=S8 host=10.0.0.X log=disabled <br>
+:service host add name=S9 <br>
+:service host rule add name=S9 protocol=any portrange=1901 <br>
+:service host assign name=S9 host=10.0.0.X log=disabled <br>
+:service host add name=S10 <br>
+:service host rule add name=S10 protocol=any portrange=2869 <br>
+:service host assign name=S10 host=10.0.0.X log=disabled <br>
+:service host add name=S11 <br>
+:service host rule add name=S11 protocol=any portrange=6969 <br>
+:service host assign name=S11 host=10.0.0.X log=disabled <br>
+:service host add name=S12 <br>
+:service host rule add name=S12 protocol=any portrange=10243 <br>
+:service host assign name=S12 host=10.0.0.X log=disabled <br>
+:service host add name=S13 <br>
+:service host rule add name=S13 protocol=any portrange=10280-10284 <br>
+:service host assign name=S13 host=10.0.0.X log=disabled <br>
+</font></div>
+   
+    <div id="wrap"><font color="white">
+      <h1>Xbox One</h1> 
+:service host add name=X1 <br>
+:service host rule add name=X1 protocol=any portrange=88 <br>
+:service host assign name=X1 host=10.0.0.X log=disabled <br>
+:service host add name=X2 <br>
+:service host rule add name=X2 protocol=any portrange=3074 <br>
+:service host assign name=X2 host=10.0.0.X log=disabled <br>
+:service host add name=X3 <br>
+:service host rule add name=X3 protocol=any portrange=53 <br>
+:service host assign name=X3 host=10.0.0.X log=disabled <br>
+:service host add name=X4 <br>
+:service host rule add name=X4 protocol=any portrange=80 <br>
+:service host assign name=X4 host=10.0.0.X log=disabled <br>
+:service host add name=X5 <br>
+:service host rule add name=X5 protocol=any portrange=500 <br>
+:service host assign name=X5 host=10.0.0.X log=disabled <br>
+:service host add name=X6 <br>
+:service host rule add name=X6 protocol=any portrange=3544 <br>
+:service host assign name=X6 host=10.0.0.X log=disabled <br>
+:service host add name=X7 <br>
+:service host rule add name=X7 protocol=any portrange=4500 <br>
+:service host assign name=X7 host=10.0.0.X log=disabled <br>
+ </font></div>
+   
+    <div id="wrap"><font color="white">
+      <h1>Xbox 360</h1> 
+:service host add name=X1 <br>
+:service host rule add name=X1 protocol=any portrange=88 <br>
+:service host assign name=X1 host=10.0.0.X log=disabled <br>
+:service host add name=X2 <br>
+:service host rule add name=X2 protocol=any portrange=3074 <br>
+:service host assign name=X2 host=10.0.0.X log=disabled <br>
+:service host add name=X3 <br>
+:service host rule add name=X3 protocol=any portrange=53 <br>
+:service host assign name=X3 host=10.0.0.X log=disabled <br>
+:service host add name=X4 <br>
+:service host rule add name=X4 protocol=any portrange=80 <br>
+:service host assign name=X4 host=10.0.0.X log=disabled <br>
+ </font></div>
+   
+    <div id="wrap"><font color="white">
+      <h1>Playstation 4</h1> 
+:service host add name=Ps1 <br>
+:service host rule add name=Ps1 protocol=any portrange=80 <br>
+:service host assign name=Ps1 host=10.0.0.X log=disabled <br>
+:service host add name=Ps2 <br>
+:service host rule add name=Ps2 protocol=any portrange=443 <br>
+:service host assign name=Ps2 host=10.0.0.X log=disabled <br>
+:service host add name=Ps3 <br>
+:service host rule add name=Ps3 protocol=any portrange=465 <br>
+:service host assign name=Ps3 host=10.0.0.X log=disabled <br>
+:service host add name=Ps4 <br>
+:service host rule add name=Ps4 protocol=any portrange=983 <br>
+:service host assign name=Ps4 host=10.0.0.X log=disabled <br>
+:service host add name=Ps5 <br>
+:service host rule add name=Ps5 protocol=any portrange=3478-3480 <br>
+:service host assign name=Ps5 host=10.0.0.X log=disabled <br>
+:service host add name=Ps6 <br>
+:service host rule add name=Ps6 protocol=any portrange=3658 <br>
+:service host assign name=Ps6 host=10.0.0.X log=disabled <br>
+:service host add name=Ps7 <br>
+:service host rule add name=Ps7 protocol=any portrange=5223 <br>
+:service host assign name=Ps7 host=10.0.0.X log=disabled <br>
+:service host add name=Ps8 <br>
+:service host rule add name=Ps8 protocol=any portrange=6000-7000 <br>
+:service host assign name=Ps8 host=10.0.0.X log=disabled <br>
+:service host add name=Ps9 <br>
+:service host rule add name=Ps9 protocol=any portrange=9293 <br>
+:service host assign name=Ps9 host=10.0.0.X log=disabled <br>
+:service host add name=Ps10 <br>
+:service host rule add name=Ps10 protocol=any portrange=10070-10080 <br>
+:service host assign name=Ps10 host=10.0.0.X log=disabled <br>
+</font></div>
+
+    <div id="wrap"><font color="white">
+      <h1>Dankort Terminal</h1> 
+:service host add name=DK1 <br>
+:service host rule add name=DK1 protocol=any portrange=19000 <br>
+:service host assign name=DK1 host=10.0.0.X log=disabled <br>
+:service host add name=DK2 <br>
+:service host rule add name=DK2 protocol=any portrange=21 <br>
+:service host assign name=DK2 host=10.0.0.X log=disabled <br>
+:service host add name=DK3 <br>
+:service host rule add name=DK3 protocol=any portrange=50020 <br>
+:service host assign name=DK33 host=10.0.0.X log=disabled <br>
+:service host add name=DK4 <br>
+:service host rule add name=DK4 protocol=any portrange=13 <br>
+:service host assign name=DK4 host=10.0.0.X log=disabled <br>
+:service host add name=DK5 <br>
+:service host rule add name=DK5 protocol=any portrange=80 <br>
+:service host assign name=DK5 host=10.0.0.X log=disabled <br>
+:service host add name=DK6 <br>
+:service host rule add name=DK6 protocol=any portrange=5214 <br>
+:service host assign name=DK6 host=10.0.0.X log=disabled <br>
+:service host add name=DK7 <br>
+:service host rule add name=DK7 protocol=any portrange=24000 <br>
+:service host assign name=DK7 host=10.0.0.X log=disabled <br>
+</font></div>
+
+    <div id="wrap"><font color="white">
+<p style="text-indent: 1em;">
+- L4v3T t1L t3kN1$K $UpP0rT <br>
+</p>
+</font></div>
+
+</body>
+</html>
+
