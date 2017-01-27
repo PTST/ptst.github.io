@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/datejs/1.0/date.min.js"></script>
+<script type="text/javascript">
+var data2
+var direction
+var name
+var type
+var time
+var rtTime
+var outputArray = [];
+</script>
+<style>
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 5px;
+}
+th {
+    text-align: left;
+}
+</style>
+
+</head>
+<body>
+
+<button id='knap'>Get again</button>
+
+<div id="output" style="display: none">
+   <h1>Næste busser fra Bornholmsgade</h1>
+   <table style="width:40%">
+  <tr>
+    <th width="10%">Nr</th>
+    <th width="70%">Destination</th> 
+    <th width="20%">Tid</th>
+   </tr>
+   <tr class="replace1">
+     <td>1</td>
+   </tr>
+   <tr class="replace2">
+     <td>2</td>
+   </tr>
+   <tr class="replace3">
+     <td>3</td>
+   </tr>
+   <tr class="replace4">
+     <td>4</td>
+   </tr>
+   <tr class="replace5">
+     <td>5</td>
+   </tr>
+   <tr class="replace6">
+     <td>6</td>
+   </tr>
+   <tr class="replace7">
+     <td>7</td>
+   </tr>
+   <tr class="replace8">
+     <td>8</td>
+   </tr>
+   <tr class="replace9">
+     <td>9</td>
+   </tr>
+   <tr class="replace10">
+     <td>10</td>
+   </tr>
+</table>
+</div>
+
+</body>
+<script>
+
+function getData()
+{
+   $.ajax({
+         url: "https://cors-anywhere.herokuapp.com/http://xmlopen.rejseplanen.dk/bin/rest.exe/departureBoard?id=851210400&format=json",
+         type: "GET",
+         beforeSend: function(xhr){xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');},
+         success: function(data) 
+         { 
+            data2 = data
+            parseData()
+         }
+   })
+};
+ 
+function parseData()
+{
+   for (i = 0; i < 10; i++) 
+   {
+      var test = undefined
+      var direction = data2.DepartureBoard.Departure[i].direction
+      var name = data2.DepartureBoard.Departure[i].name
+      name = name.replace("Bus ", "");
+      var type = data2.DepartureBoard.Departure[i].type
+      var time = data2.DepartureBoard.Departure[i].time
+      var rtTime = data2.DepartureBoard.Departure[i].rtTime
+      if (rtTime != undefined) 
+      {
+         var lateTime = new Date.parseExact(rtTime, "HH:mm")
+         var origTime = new Date.parseExact(time, "HH:mm")
+         var delay = Math.abs(lateTime-origTime)
+         var delay = Math.abs(delay/1000/60)
+      }
+      else
+      {
+         var rtTime = '0'
+         var delay = '0'
+      }
+      
+      console.log(name, direction, type, time, rtTime, delay);
+      if (delay == '0')
+      {
+         outputArray[i] = "<td>".concat(name, "</td><td>", direction, "</td><td>", time, "</td>")
+      }
+      else
+      {
+         outputArray[i] = "<td>".concat(name, "</td><td>", direction, "</td><td>", time, "+", delay, "</td>")
+      }
+   }
+   outputHTML()
+};
+
+function outputHTML()
+{
+   $(".replace1").empty().append(outputArray[0]);
+   $(".replace2").empty().append(outputArray[1]);
+   $(".replace3").empty().append(outputArray[2]);
+   $(".replace4").empty().append(outputArray[3]);
+   $(".replace5").empty().append(outputArray[4]);
+   $(".replace6").empty().append(outputArray[5]);
+   $(".replace7").empty().append(outputArray[6]);
+   $(".replace8").empty().append(outputArray[7]);
+   $(".replace9").empty().append(outputArray[8]);
+   $(".replace10").empty().append(outputArray[9]);
+   $("#output").show()
+};
+
+$("#knap").click(getData);
+
+$(document).ready(getData);
+
+
+</script>
+</html>
