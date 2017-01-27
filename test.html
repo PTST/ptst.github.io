@@ -18,8 +18,8 @@ var outputArray = [];
   font-size: 90px;
   text-indent: -9999em;
   overflow: hidden;
-  width: 1em;
-  height: 1em;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
   margin: 72px auto;
   position: relative;
@@ -97,7 +97,7 @@ th {
 </head>
 <body>
 
-<button id='knap'>Get again</button><div class="loader">Loading...</div>
+<button id='knap'>Get again</button><div class="loader" style="display: none">Loading...</div>
 
 <div id="output" style="display: none">
    <h1>Næste busser fra Bornholmsgade</h1>
@@ -159,6 +159,7 @@ function getData()
  
 function parseData()
 {
+    $(".loader").show()
    for (i = 0; i < 10; i++) 
    {
       var test = undefined
@@ -207,6 +208,7 @@ function outputHTML()
    $(".replace9").empty().append(outputArray[8]);
    $(".replace10").empty().append(outputArray[9]);
    $("#output").show()
+  $(".loader").hide()
 setTimeout(getData, 30000);
 };
 
