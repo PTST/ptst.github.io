@@ -145,6 +145,7 @@ th {
 
 function getData()
 {
+  $(".loader").show();
    $.ajax({
          url: "https://cors-anywhere.herokuapp.com/http://xmlopen.rejseplanen.dk/bin/rest.exe/departureBoard?id=851210400&format=json",
          type: "GET",
@@ -159,7 +160,6 @@ function getData()
  
 function parseData()
 {
-    $(".loader").show()
    for (i = 0; i < 10; i++) 
    {
       var test = undefined
@@ -207,8 +207,8 @@ function outputHTML()
    $(".replace8").empty().append(outputArray[7]);
    $(".replace9").empty().append(outputArray[8]);
    $(".replace10").empty().append(outputArray[9]);
-   $("#output").show()
-  $(".loader").hide()
+   $("#output").show();
+  $(".loader").hide();
 setTimeout(getData, 30000);
 };
 
