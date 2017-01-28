@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/datejs/1.0/date.min.js"></script>
+<script src="js/jquery.gcal_flow.min.js"></script>
 <script type="text/javascript">
 var data2
 var direction
@@ -11,101 +13,117 @@ var type
 var time
 var rtTime
 var outputArray = [];
+
+
+
+//AIzaSyBIOsjAs7R0z9tnakmtn_BmgqaWEUaae7w
 </script>
 <style>
-.loader {
-  color: #000000;
-  font-size: 90px;
-  text-indent: -9999em;
-  overflow: hidden;
-  width: 1em;
-  height: 1em;
-  border-radius: 50%;
-  margin: 72px auto;
+
+
+.load-bar {
   position: relative;
-  -webkit-transform: translateZ(0);
-  -ms-transform: translateZ(0);
-  transform: translateZ(0);
-  -webkit-animation: load6 1.7s infinite ease;
-  animation: load6 1.7s infinite ease;
+  margin-top: 20px;
+  width: 100%;
+  height: 6px;
+  background-color: #fdba2c;
 }
-@-webkit-keyframes load6 {
-  0% {
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
-    box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
-  }
-  5%,
-  95% {
-    box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
-  }
-  10%,
-  59% {
-    box-shadow: 0 -0.83em 0 -0.4em, -0.087em -0.825em 0 -0.42em, -0.173em -0.812em 0 -0.44em, -0.256em -0.789em 0 -0.46em, -0.297em -0.775em 0 -0.477em;
-  }
-  20% {
-    box-shadow: 0 -0.83em 0 -0.4em, -0.338em -0.758em 0 -0.42em, -0.555em -0.617em 0 -0.44em, -0.671em -0.488em 0 -0.46em, -0.749em -0.34em 0 -0.477em;
-  }
-  38% {
-    box-shadow: 0 -0.83em 0 -0.4em, -0.377em -0.74em 0 -0.42em, -0.645em -0.522em 0 -0.44em, -0.775em -0.297em 0 -0.46em, -0.82em -0.09em 0 -0.477em;
-  }
-  100% {
-    -webkit-transform: rotate(360deg);
-    transform: rotate(360deg);
-    box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
+.bar {
+  content: "";
+  display: inline;
+  position: absolute;
+  width: 0;
+  height: 100%;
+  left: 50%;
+  text-align: center;
+}
+.bar:nth-child(1) {
+  background-color: #da4733;
+  animation: loading 3s linear infinite;
+}
+.bar:nth-child(2) {
+  background-color: #3b78e7;
+  animation: loading 3s linear 1s infinite;
+}
+.bar:nth-child(3) {
+  background-color: #fdba2c;
+  animation: loading 3s linear 2s infinite;
+}
+@keyframes loading {
+    from {left: 50%; width: 0;z-index:100;}
+    33.3333% {left: 0; width: 100%;z-index: 10;}
+    to {left: 0; width: 100%;}
+}
+
+@-webkit-keyframes sk-stretchdelay {
+  0%, 40%, 100% { -webkit-transform: scaleY(0.4) }  
+  20% { -webkit-transform: scaleY(1.0) }
+}
+
+@keyframes sk-stretchdelay {
+  0%, 40%, 100% { 
+    transform: scaleY(0.4);
+    -webkit-transform: scaleY(0.4);
+  }  20% { 
+    transform: scaleY(1.0);
+    -webkit-transform: scaleY(1.0);
   }
 }
-@keyframes load6 {
-  0% {
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
-    box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
-  }
-  5%,
-  95% {
-    box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
-  }
-  10%,
-  59% {
-    box-shadow: 0 -0.83em 0 -0.4em, -0.087em -0.825em 0 -0.42em, -0.173em -0.812em 0 -0.44em, -0.256em -0.789em 0 -0.46em, -0.297em -0.775em 0 -0.477em;
-  }
-  20% {
-    box-shadow: 0 -0.83em 0 -0.4em, -0.338em -0.758em 0 -0.42em, -0.555em -0.617em 0 -0.44em, -0.671em -0.488em 0 -0.46em, -0.749em -0.34em 0 -0.477em;
-  }
-  38% {
-    box-shadow: 0 -0.83em 0 -0.4em, -0.377em -0.74em 0 -0.42em, -0.645em -0.522em 0 -0.44em, -0.775em -0.297em 0 -0.46em, -0.82em -0.09em 0 -0.477em;
-  }
-  100% {
-    -webkit-transform: rotate(360deg);
-    transform: rotate(360deg);
-    box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
-  }
+
+td{
+  font-size:  14px;
+  padding: 5px 5px 5px 5px;
 }
     
-table, th, td {
-    border: 1px solid black;
-    border-collapse: collapse;
-}
-th, td {
-    padding: 5px;
-}
-th {
-    text-align: left;
-}
 </style>
 
 </head>
 <body>
 
-<button id='knap'>Get again</button><div class="loader" style="display: inline">Loading...</div>
+    <div id="gcf-simple">
+    </div>
+    <script type="text/javascript">
+$(function() { $('#gcf-simple').gCalFlow({
+  calid: 'linuxfoundation.org_34363837313836302d343036@resource.calendar.google.com',
+});});
+    </script>
 
-<div id="output" style="display: none">
-   <h1>Næste busser fra Bornholmsgade</h1>
-   <table style="width:40%">
+<div class="gcf-header-block">
+  <div class="gcf-title-block">
+    <span class="gcf-title"></span>
+  </div>
+</div>
+<div class="gcf-item-container-block">
+  <div class="gcf-item-block">
+    <div class="gcf-item-header-block">
+      <div class="gcf-item-date-block">
+        [<span class="gcf-item-daterange"></span>]
+      </div>
+      <div class="gcf-item-title-block">
+        <strong class="gcf-item-title"></strong>
+      </div>
+    </div>
+    <div class="gcf-item-body-block">
+      <div class="gcf-item-description">
+      </div>
+      <div class="gcf-item-location">
+      </div>
+    </div>
+  </div>
+</div>
+<div class="gcf-last-update-block">
+  LastUpdate: <span class="gcf-last-update"></span>
+</div>
+
+
+<div style="width : 40%">
+<div id="output" class="z-depth-1" style="display: none; padding: 20px 20px 20px 20px">
+   <h3>Næste busser fra Bornholmsgade</h3>
+   <table class="centered" style="width:100%">
   <tr>
-    <th width="10%">Nr</th>
-    <th width="70%">Destination</th> 
-    <th width="20%">Tid</th>
+    <th data-field="id" width="10%">Nr</th>
+    <th data-field="to" width="70%">Destination</th> 
+    <th data-field="time" width="20%">Tid</th>
    </tr>
    <tr class="replace1">
      <td>1</td>
@@ -139,13 +157,20 @@ th {
    </tr>
 </table>
 </div>
+
+<div class="load-bar">
+  <div class="bar"></div>
+  <div class="bar"></div>
+  <div class="bar"></div>
+</div>
+</div>
     
 </body>
 <script>
 
 function getData()
 {
-  $(".loader").show();
+  $(".load-bar").show();
    $.ajax({
          url: "https://cors-anywhere.herokuapp.com/http://xmlopen.rejseplanen.dk/bin/rest.exe/departureBoard?id=851210400&format=json",
          type: "GET",
@@ -208,7 +233,7 @@ function outputHTML()
    $(".replace9").empty().append(outputArray[8]);
    $(".replace10").empty().append(outputArray[9]);
    $("#output").show();
-  $(".loader").hide();
+  $(".load-bar").hide();
 setTimeout(getData, 30000);
 };
 
