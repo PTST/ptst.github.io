@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+	<head>
+
+	    <meta charset="utf-8">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/datejs/1.0/date.min.js"></script>
+		<script src="js/format-google-calendar.js"></script>
+
+		<script type="text/javascript">
+			var data2
+			var direction
+			var name
+			var type
+			var time
+			var rtTime
+			var outputArray = [];
+		</script>
+
+	</head>
+	<body>
+
+		<div class="load-bar">
+			<div class="bar"></div>
+			<div class="bar"></div>
+			<div class="bar"></div>
+		</div>
+
+		<div class='col-xs-4'>
+			<div id="output">
+			   <h3>Næste busser fra Bornholmsgade</h3>
+			   <table style="width:100%">
+			   <thead>
+			  <tr>
+			    <th data-field='id' width='10%' style='text-align: center'>Nr</th>
+			    <th data-field='to' width='70%'>Destination</th> 
+			    <th data-field='time' width='20%' style='text-align: center'>Tid</th>
+			   </tr>
+			   </thead>
+			   <tbody>
+			   <tr class="replace1">
+			     <td>1</td>
+			   </tr>
+			   <tr class="replace2">
+			     <td>2</td>
+			   </tr>
+			   <tr class="replace3">
+			     <td>3</td>
+			   </tr>
+			   <tr class="replace4">
+			     <td>4</td>
+			   </tr>
+			   <tr class="replace5">
+			     <td>5</td>
+			   </tr>
+			   <tr class="replace6">
+			     <td>6</td>
+			   </tr>
+			   <tr class="replace7">
+			     <td>7</td>
+			   </tr>
+			   <tr class="replace8">
+			     <td>8</td>
+			   </tr>
+			   <tr class="replace9">
+			     <td>9</td>
+			   </tr>
+			   <tr class="replace10">
+			     <td>10</td>
+			   </tr>
+			   </tbody>
+			</table>
+			</div>
+		</div>	
+		<div class='col-xs-8'>
+			<h3>Kalender</h3>
+			<ul id="events-patrick">
+			</ul>
+		</div>
+		
+
+
+	</body>
+	<script>
+
+		function getData()
+		{
+		  $(".load-bar").css('visibility','visible');
+		  calendar();
+		   $.ajax({
+		         url: "https://cors-anywhere.herokuapp.com/http://xmlopen.rejseplanen.dk/bin/rest.exe/departureBoard?id=851210400&format=json",
+		         type: "GET",
+		         beforeSend: function(xhr){xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');},
+		         success: function(data) 
+		         { 
+		            data2 = data
+		            parseData()
+		         }
+		   })
+		};
+		 
+		function parseData()
+		{
+		   for (i = 0; i < 10; i++) 
+		   {
+		      var test = undefined
+		      var direction = data2.DepartureBoard.Departure[i].direction
+		      var name = data2.DepartureBoard.Departure[i].name
+		      name = name.replace("Bus ", "");
+		      var type = data2.DepartureBoard.Departure[i].type
+		      var time = data2.DepartureBoard.Departure[i].time
+		      var rtTime = data2.DepartureBoard.Departure[i].rtTime
+		      if (rtTime != undefined) 
+		      {
+		         var lateTime = new Date.parseExact(rtTime, "HH:mm")
+		         var origTime = new Date.parseExact(time, "HH:mm")
+		         var delay = Math.abs(lateTime-origTime)
+		         var delay = Math.abs(delay/1000/60)
+		      }
+		      else
+		      {
+		         var rtTime = '0'
+		         var delay = '0'
+		      }
+		      
+		      //console.log(name, direction, type, time, rtTime, delay);
+		      if (delay == '0')
+		      {
+		         outputArray[i] = "<td style='text-align: center'>".concat(name, "</td><td>", direction, "</td><td style='text-align: center'>", time, "</td>")
+		      }
+		      else
+		      {
+		         outputArray[i] = "<td style='text-align: center'>".concat(name, "</td><td>", direction, "</td><td style='text-align: center;'>", time, "<span style='color: red;'>+", delay, "</span></td>")
+		      }
+		   }
+		   outputHTML()
+		};
+
+		function outputHTML()
+		{
+		   $(".replace1").empty().append(outputArray[0]);
+		   $(".replace2").empty().append(outputArray[1]);
+		   $(".replace3").empty().append(outputArray[2]);
+		   $(".replace4").empty().append(outputArray[3]);
+		   $(".replace5").empty().append(outputArray[4]);
+		   $(".replace6").empty().append(outputArray[5]);
+		   $(".replace7").empty().append(outputArray[6]);
+		   $(".replace8").empty().append(outputArray[7]);
+		   $(".replace9").empty().append(outputArray[8]);
+		   $(".replace10").empty().append(outputArray[9]);
+		   $("#output").show();
+		  $(".load-bar").css('visibility','hidden');
+		setTimeout(getData, 30000);
+		};
+
+		$("#knap").click(getData);
+
+		$(document).ready(getData);
+
+
+
+
+		//Calendar
+		function calendar(){
+		//$('#events-patrick').empty();
+		//  $('#events-food').empty();
+		formatGoogleCalendar.init({
+		        calendarUrl: 'https://www.googleapis.com/calendar/v3/calendars/patrick.steffensen@gmail.com/events?key=AIzaSyA_VtEp9-NpPLklX0-mdgHofs_K7i8O878',
+		        past: false,
+		        upcoming: true,
+		        sameDayTimes: true,
+		        dayNames: true,
+		        pastTopN: -1,
+		        upcomingTopN: 10,
+		        itemsTagName: 'li',
+		        upcomingSelector: '#events-patrick',
+		        pastSelector: '#events-past',
+		        upcomingHeading: '',
+		        pastHeading: '<h2>Past events</h2>',
+		        format: ['*date*', ': ', '*summary*', ' — ', '*description*', ' in ', '*location*']
+		});
+		formatGoogleCalendar.init({
+		        calendarUrl: 'https://www.googleapis.com/calendar/v3/calendars/12blah0ppn3l9234r7bn1l9klc@group.calendar.google.com/events?key=AIzaSyA_VtEp9-NpPLklX0-mdgHofs_K7i8O878',
+		        past: false,
+		        upcoming: true,
+		        sameDayTimes: true,
+		        dayNames: true,
+		        pastTopN: -1,
+		        upcomingTopN: 1,
+		        itemsTagName: 'li',
+		        upcomingSelector: '#events-food',
+		        pastSelector: '#events-past',
+		        upcomingHeading: '',
+		        pastHeading: '',
+		        format: ['*summary*', ' — ', '*description*', ' in ', '*location*']
+		});
+
+		};
+
+
+
+
+	</script>
+	<style>
+
+
+		.load-bar {
+		  position: relative;
+		  margin-top: 20px;
+		  width: 100%;
+		  height: 6px;
+		  background-color: #fdba2c;
+		}
+		.bar {
+		  content: "";
+		  display: inline;
+		  position: absolute;
+		  width: 0;
+		  height: 100%;
+		  left: 50%;
+		  text-align: center;
+		}
+		.bar:nth-child(1) {
+		  background-color: #da4733;
+		  animation: loading 3s linear infinite;
+		}
+		.bar:nth-child(2) {
+		  background-color: #3b78e7;
+		  animation: loading 3s linear 1s infinite;
+		}
+		.bar:nth-child(3) {
+		  background-color: #fdba2c;
+		  animation: loading 3s linear 2s infinite;
+		}
+		@keyframes loading {
+		    from {left: 50%; width: 0;z-index:100;}
+		    33.3333% {left: 0; width: 100%;z-index: 10;}
+		    to {left: 0; width: 100%;}
+		}
+
+		@-webkit-keyframes sk-stretchdelay {
+		  0%, 40%, 100% { -webkit-transform: scaleY(0.4) }  
+		  20% { -webkit-transform: scaleY(1.0) }
+		}
+
+		@keyframes sk-stretchdelay {
+		  0%, 40%, 100% { 
+		    transform: scaleY(0.4);
+		    -webkit-transform: scaleY(0.4);
+		  }  20% { 
+		    transform: scaleY(1.0);
+		    -webkit-transform: scaleY(1.0);
+		  }
+		}
+
+		td{
+		  font-size:  14px;
+		  padding: 5px 5px 5px 5px;
+		}
+
+		#events-patrick{
+		  font-size: 26px;
+		  margin: 20px 20px 20px 20px;
+		}
+
+		#events-food{
+		  font-size: 26px;
+		  margin: 20px 20px 20px 20px;
+		}
+		    
+	</style>
+</html>
