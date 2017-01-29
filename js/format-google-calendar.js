@@ -358,7 +358,7 @@ var formatGoogleCalendar = (function() {
     return {
         init: function (settingsOverride) {
             var settings = {
-        calendarUrl: 'https://www.googleapis.com/calendar/v3/calendars/patrick.steffensen@gmail.com/events?key=AIzaSyA_VtEp9-NpPLklX0-mdgHofs_K7i8O878',
+        calendarUrl: 'https://www.googleapis.com/calendar/v3/calendars/patrick.steffensen@gmail.com/events?key=AIzaSyA_VtEp9-NpPLklX0-mdgHofs_K7i8O878&singleEvents=true',
         past: false,
         upcoming: true,
         sameDayTimes: true,
