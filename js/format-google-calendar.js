@@ -242,7 +242,7 @@ var formatGoogleCalendar = (function() {
         }
 
         if (config.sameDayTimes && !moreDaysEvent && !isAllDayEvent) {
-            formattedTime = ' fra ' + getFormattedTime(dateStart) + ' - ' + getFormattedTime(dateEnd);
+            formattedTime = '<br>' + getFormattedTime(dateStart) + ' - ' + getFormattedTime(dateEnd);
         }
 
         //month day, year time-time
