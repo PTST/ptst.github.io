@@ -1,13 +1,35 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script src="/js/format-google-calendar.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="js/format-google-calendar.js"></script>
 <script type="text/javascript">
 //https://www.googleapis.com/calendar/v3/calendars/patrick.steffensen@gmail.com/events?key=AIzaSyA_VtEp9-NpPLklX0-mdgHofs_K7i8O878
 </script>
 </head>
 <body>
-
+<ul id="events-upcoming">
+</ul>
 
 </body>
+<script type="text/javascript">
+	
+formatGoogleCalendar.init({
+        calendarUrl: 'https://www.googleapis.com/calendar/v3/calendars/12blah0ppn3l9234r7bn1l9klc@group.calendar.google.com/events?key=AIzaSyA_VtEp9-NpPLklX0-mdgHofs_K7i8O878',
+        past: false,
+        upcoming: true,
+        sameDayTimes: true,
+        dayNames: true,
+        pastTopN: -1,
+        upcomingTopN: 1,
+        itemsTagName: 'li',
+        upcomingSelector: '#events-food',
+        pastSelector: '#events-past',
+        upcomingHeading: '',
+        pastHeading: '',
+        format: ['*summary*', ' — ', '*description*', ' in ', '*location*']
+});
+
+
+</script>
 </html>

@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/datejs/1.0/date.min.js"></script>
-<script src="js/jquery.gcal_flow.min.js"></script>
+<script src="js/format-google-calendar.js"></script>
 <script type="text/javascript">
 var data2
 var direction
@@ -74,57 +74,51 @@ td{
   font-size:  14px;
   padding: 5px 5px 5px 5px;
 }
+
+#events-patrick{
+  font-size: 26px;
+  margin: 20px 20px 20px 20px;
+}
+
+#events-food{
+  font-size: 26px;
+  margin: 20px 20px 20px 20px;
+}
     
 </style>
 
 </head>
 <body>
 
-    <div id="gcf-simple">
-    </div>
-    <script type="text/javascript">
-$(function() { $('#gcf-simple').gCalFlow({
-  calid: 'linuxfoundation.org_34363837313836302d343036@resource.calendar.google.com',
-});});
-    </script>
 
-<div class="gcf-header-block">
-  <div class="gcf-title-block">
-    <span class="gcf-title"></span>
-  </div>
+<div class="load-bar">
+  <div class="bar"></div>
+  <div class="bar"></div>
+  <div class="bar"></div>
 </div>
-<div class="gcf-item-container-block">
-  <div class="gcf-item-block">
-    <div class="gcf-item-header-block">
-      <div class="gcf-item-date-block">
-        [<span class="gcf-item-daterange"></span>]
-      </div>
-      <div class="gcf-item-title-block">
-        <strong class="gcf-item-title"></strong>
-      </div>
-    </div>
-    <div class="gcf-item-body-block">
-      <div class="gcf-item-description">
-      </div>
-      <div class="gcf-item-location">
-      </div>
-    </div>
-  </div>
 </div>
-<div class="gcf-last-update-block">
-  LastUpdate: <span class="gcf-last-update"></span>
-</div>
+
+<h3>Madplan</h3>
+<ul id="events-food">
+</ul>
+
+<h3>Kalender</h3>
+<ul id="events-patrick">
+</ul>
 
 
 <div style="width : 40%">
 <div id="output" class="z-depth-1" style="display: none; padding: 20px 20px 20px 20px">
    <h3>Næste busser fra Bornholmsgade</h3>
-   <table class="centered" style="width:100%">
+   <table style="width:100%">
+   <thead>
   <tr>
-    <th data-field="id" width="10%">Nr</th>
-    <th data-field="to" width="70%">Destination</th> 
-    <th data-field="time" width="20%">Tid</th>
+    <th data-field='id' width='10%' style='text-align: center'>Nr</th>
+    <th data-field='to' width='70%'>Destination</th> 
+    <th data-field='time' width='20%' style='text-align: center'>Tid</th>
    </tr>
+   </thead>
+   <tbody>
    <tr class="replace1">
      <td>1</td>
    </tr>
@@ -155,14 +149,8 @@ $(function() { $('#gcf-simple').gCalFlow({
    <tr class="replace10">
      <td>10</td>
    </tr>
+   </tbody>
 </table>
-</div>
-
-<div class="load-bar">
-  <div class="bar"></div>
-  <div class="bar"></div>
-  <div class="bar"></div>
-</div>
 </div>
     
 </body>
@@ -170,7 +158,8 @@ $(function() { $('#gcf-simple').gCalFlow({
 
 function getData()
 {
-  $(".load-bar").show();
+  $(".load-bar").css('visibility','visible');
+  calendar();
    $.ajax({
          url: "https://cors-anywhere.herokuapp.com/http://xmlopen.rejseplanen.dk/bin/rest.exe/departureBoard?id=851210400&format=json",
          type: "GET",
@@ -207,14 +196,14 @@ function parseData()
          var delay = '0'
       }
       
-      console.log(name, direction, type, time, rtTime, delay);
+      //console.log(name, direction, type, time, rtTime, delay);
       if (delay == '0')
       {
-         outputArray[i] = "<td>".concat(name, "</td><td>", direction, "</td><td>", time, "</td>")
+         outputArray[i] = "<td style='text-align: center'>".concat(name, "</td><td>", direction, "</td><td style='text-align: center'>", time, "</td>")
       }
       else
       {
-         outputArray[i] = "<td>".concat(name, "</td><td>", direction, "</td><td>", time, "+", delay, "</td>")
+         outputArray[i] = "<td style='text-align: center'>".concat(name, "</td><td>", direction, "</td><td style='text-align: center;'>", time, "<span style='color: red;'>+", delay, "</span></td>")
       }
    }
    outputHTML()
@@ -233,13 +222,55 @@ function outputHTML()
    $(".replace9").empty().append(outputArray[8]);
    $(".replace10").empty().append(outputArray[9]);
    $("#output").show();
-  $(".load-bar").hide();
+  $(".load-bar").css('visibility','hidden');
 setTimeout(getData, 30000);
 };
 
 $("#knap").click(getData);
 
 $(document).ready(getData);
+
+
+
+
+//Calendar
+function calendar(){
+//$('#events-patrick').empty();
+//  $('#events-food').empty();
+formatGoogleCalendar.init({
+        calendarUrl: 'https://www.googleapis.com/calendar/v3/calendars/patrick.steffensen@gmail.com/events?key=AIzaSyA_VtEp9-NpPLklX0-mdgHofs_K7i8O878',
+        past: false,
+        upcoming: true,
+        sameDayTimes: true,
+        dayNames: true,
+        pastTopN: -1,
+        upcomingTopN: 10,
+        itemsTagName: 'li',
+        upcomingSelector: '#events-patrick',
+        pastSelector: '#events-past',
+        upcomingHeading: '',
+        pastHeading: '<h2>Past events</h2>',
+        format: ['*date*', ': ', '*summary*', ' — ', '*description*', ' in ', '*location*']
+});
+formatGoogleCalendar.init({
+        calendarUrl: 'https://www.googleapis.com/calendar/v3/calendars/12blah0ppn3l9234r7bn1l9klc@group.calendar.google.com/events?key=AIzaSyA_VtEp9-NpPLklX0-mdgHofs_K7i8O878',
+        past: false,
+        upcoming: true,
+        sameDayTimes: true,
+        dayNames: true,
+        pastTopN: -1,
+        upcomingTopN: 1,
+        itemsTagName: 'li',
+        upcomingSelector: '#events-food',
+        pastSelector: '#events-past',
+        upcomingHeading: '',
+        pastHeading: '',
+        format: ['*summary*', ' — ', '*description*', ' in ', '*location*']
+});
+
+};
+
+
 
 
 </script>
