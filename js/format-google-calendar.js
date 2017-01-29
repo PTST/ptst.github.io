@@ -242,11 +242,11 @@ var formatGoogleCalendar = (function() {
         }
 
         if (config.sameDayTimes && !moreDaysEvent && !isAllDayEvent) {
-            formattedTime = '<br>' + getFormattedTime(dateStart) + ' - ' + getFormattedTime(dateEnd);
+            formattedTime = '</h3><br>' + getFormattedTime(dateStart) + ' - ' + getFormattedTime(dateEnd);
         }
 
         //month day, year time-time
-        return dayNameStart + 'd. ' + dateStart[0] + '. ' + getMonthName(dateStart[1]) + ', ' + dateStart[2] + formattedTime;
+        return '<h3>' + dayNameStart + 'd. ' + dateStart[0] + '. ' + getMonthName(dateStart[1]) + ', ' + dateStart[2] + formattedTime;
     };
 
     var formatDateOneDay = function(dateStart, dayNames) {
