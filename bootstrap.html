@@ -16,6 +16,7 @@
 		<script type="text/javascript" src="js/gcal.js"></script>
 		<script src="js/jquery.simpleWeather.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
+		<script src="https://use.fontawesome.com/536ce7b85e.js"></script>
 		<!--<link rel='stylesheet' href='css/fullcalendar.css' /> -->
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
 
@@ -353,6 +354,8 @@ function calendar() {
 	]
     });
 	$(".fc-next-button").addClass("waves-effect waves-light btn");
+	$(".fc-next-button").addClass("fa-arrow-circle-right");
+	
 	getData();
 };
 
