@@ -151,47 +151,6 @@
 .fc-rtl .fc-list-heading-main { float: right; }
 .fc-rtl .fc-list-heading-alt { float: left; }
 	
-	.fc .fc-button-group > * { /* extra precedence b/c buttons have margin set to zero */
-	float: left;
-	margin: 0 0 0 -1px;
-}
-
-	.fc button {
-	/* force height to include the border and padding */
-	-moz-box-sizing: border-box;
-	-webkit-box-sizing: border-box;
-	box-sizing: border-box;
-
-	/* dimensions */
-	margin: 0;
-	height: 2.1em;
-	padding: 0 .6em;
-
-	/* text & cursor */
-	font-size: 1em; /* normalize */
-	white-space: nowrap;
-	cursor: pointer;
-}
-	
-.fc .fc-button-group > :first-child { /* same */
-	margin-left: 0;
-}
-	
-	.fc-toolbar .fc-right {
-	float: right;
-}
-	
-	/* the things within each left/right/center section */
-.fc .fc-toolbar > * > * { /* extra precedence to override button border margins */
-	float: left;
-	margin-left: .75em;
-}
-
-/* the first thing within each left/center/right section */
-.fc .fc-toolbar > * > :first-child { /* extra precedence to override button border margins */
-	margin-left: 0;
-}
-	
 
 </style>
 		
