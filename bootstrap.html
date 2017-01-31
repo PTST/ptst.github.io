@@ -221,9 +221,9 @@
 
 		function getData()
 		{
-		  $(".load-bar").css('visibility','visible');
-			food();
-		  calendar();
+		$(".load-bar").css('visibility','visible');
+		food();
+		$('#calendar').fullCalendar( 'refetchEvents');
 		weather();
 		   $.ajax({
 		         url: "https://cors-anywhere.herokuapp.com/http://xmlopen.rejseplanen.dk/bin/rest.exe/departureBoard?id=851210400&format=json",
@@ -293,7 +293,7 @@
 
 		$("#knap").click(getData);
 
-		$(document).ready(getData);
+		$(document).ready(calendar);
 
 
 
@@ -334,6 +334,7 @@ function calendar() {
         }
 	]
     });
+function getData();
 };
 
 function weather() {
