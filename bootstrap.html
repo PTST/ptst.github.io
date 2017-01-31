@@ -222,7 +222,9 @@
 		function getData()
 		{
 		  $(".load-bar").css('visibility','visible');
+			food();
 		  calendar();
+		weather();
 		   $.ajax({
 		         url: "https://cors-anywhere.herokuapp.com/http://xmlopen.rejseplanen.dk/bin/rest.exe/departureBoard?id=851210400&format=json",
 		         type: "GET",
@@ -297,26 +299,9 @@
 
 
 		//Calendar
-		function calendar(){
+		function food(){
 		//$('#events-patrick').empty();
 		//  $('#events-food').empty();
-		formatGoogleCalendar.init({
-				//AIzaSyDW9Lc69jV0wAaEQEtGZ9jKCZvIkX9bpZU
-				//https://www.googleapis.com/calendar/v3/calendars/patrick.steffensen@gmail.com/events?key=AIzaSyDW9Lc69jV0wAaEQEtGZ9jKCZvIkX9bpZU&singleEvents=true&maxResults=10000000&orderBy=updated
-		        calendarUrl: 'https://www.googleapis.com/calendar/v3/calendars/patrick.steffensen@gmail.com/events?key=AIzaSyA_VtEp9-NpPLklX0-mdgHofs_K7i8O878&singleEvents=true&maxResults=10000000&orderBy=startTime',
-		        past: false,
-		        upcoming: true,
-		        sameDayTimes: true,
-		        dayNames: true,
-		        pastTopN: -1,
-		        upcomingTopN: 10,
-		        itemsTagName: 'li',
-		        upcomingSelector: '#events-patrick',
-		        pastSelector: '#events-past',
-		        upcomingHeading: '',
-		        pastHeading: '<h2>Past events</h2>',
-		        format: ['*date*', ': ', '*summary*', ' — ', '*description*', ' in ', '*location*']
-		});
 		formatGoogleCalendar.init({
 		        calendarUrl: 'https://www.googleapis.com/calendar/v3/calendars/12blah0ppn3l9234r7bn1l9klc@group.calendar.google.com/events?key=AIzaSyA_VtEp9-NpPLklX0-mdgHofs_K7i8O878',
 		        past: false,
@@ -334,7 +319,7 @@
 		});
 
 		};
-	$(document).ready(function() {
+function calendar() {
     $('#calendar').fullCalendar({
     	defaultView: 'listWeek',
         googleCalendarApiKey: 'AIzaSyDW9Lc69jV0wAaEQEtGZ9jKCZvIkX9bpZU',
@@ -349,22 +334,25 @@
         }
 	]
     });
-});
+};
 
-$(document).ready(function() {
+function weather() {
+	console.log("Fetching data");
 	$.simpleWeather({
 		location: 'Aalborg, Denmark',
 		woeid: '',
 		unit: 'c',
 		success: function(weather) {
+			console.log("Data got");
 			html = '<h2><i class="icon-'+weather.code+'"></i> '+weather.temp+'&deg;'+weather.units.temp+'</h2>';
 			$("#weather").html(html);
 		},
 		error: function(error) {
-			$("#weather").html('<p>'+error+'</p>');
+			console.log("Error");
+			weather();
 		}
 	});
-});
+};
 
 
 
