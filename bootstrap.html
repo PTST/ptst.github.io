@@ -11,6 +11,11 @@
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/datejs/1.0/date.min.js"></script>
 		<script src="js/format-google-calendar.js"></script>
+		<script type="text/javascript" src="js/moment.min.js"></script>
+		<script type="text/javascript" src="js/fullcalendar.min.js"></script>
+		<script type="text/javascript" src="js/fullcalendar.da.js"></script>
+		<script type="text/javascript" src="js/gcal.js"></script>
+		<link rel='stylesheet' href='css/fullcalendar.css' />
 
 		<script type="text/javascript">
 			var data2
@@ -88,8 +93,7 @@
 		</div>	
 		<div class='col-xs-8'>
 			<h3>Kalender</h3>
-			<ul id="events-patrick">
-			</ul>
+			<div id='calendar'></div>
 		</div>
 		
 
@@ -212,6 +216,22 @@
 		});
 
 		};
+	$(document).ready(function() {
+    $('#calendar').fullCalendar({
+    	defaultView: 'listWeek',
+        googleCalendarApiKey: 'AIzaSyDW9Lc69jV0wAaEQEtGZ9jKCZvIkX9bpZU',
+        eventSources: [
+	{
+		googleCalendarId: 'patrick.steffensen@gmail.com',
+		color: 'green'
+        },
+	{
+            googleCalendarId: '5tkh4e52g8s3ol6g30fud8q8a0@group.calendar.google.com',
+		color: 'blue'
+        }
+	]
+    });
+});
 
 
 
